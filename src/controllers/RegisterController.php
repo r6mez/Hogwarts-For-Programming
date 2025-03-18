@@ -8,26 +8,24 @@ use App\Validators\RegisterValidator;
 
 class RegisterController
 {
-    public function showRegisterForm(array $errors = []): string
+    public function register(): void
     {
-        return Application::view('register', ['errors' => $errors]);
-    }
-
-    public function register(): string
-    {
-        $request = new RegisterValidator($_POST);
-        $errors = $request->validate();
+        $data = $_POST;
+        $validator = new RegisterValidator($data);
+        $errors = $validator->validate();
 
         if (!empty($errors)) {
-            return Application::view('register', ['errors' => $errors]);
+            $_SESSION['errors'] = $errors;
+            header('Location: /register');
+            exit;
         }
 
         $pdo = Database::getInstance();
-        $hashedPassword = password_hash($request->get('password'), PASSWORD_BCRYPT);
+        $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
         $stmt = $pdo->prepare("INSERT INTO users (name, email, password, type) VALUES (:name, :email, :password, 'Student')");
         $stmt->execute([
-            ':name' => $request->get('name'),
-            ':email' => $request->get('email'),
+            ':name' => $data['name'],
+            ':email' => $data['email'],
             ':password' => $hashedPassword,
         ]);
 

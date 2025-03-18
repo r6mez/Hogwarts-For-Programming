@@ -3,34 +3,41 @@
 namespace App\Controllers;
 
 use App\Core\Database;
+use App\Core\Application;
+use App\Validators\LoginValidator;
 
 class LoginController
 {
-    public function showLoginForm(): string
+    public function showLoginForm(array $errors = []): string
     {
-        return file_get_contents(__DIR__ . '/../views/login.php');
+        return Application::view('login', ['errors' => $errors]);
     }
 
-    public function login(): string
+    public function login(): void
     {
-        $email = $_POST['email'] ?? null;
-        $password = $_POST['password'] ?? null;
+        $data = $_POST;
+        $validator = new LoginValidator($data);
+        $errors = $validator->validate();
 
-        if (!$email || !$password) {
-            return 'Email and password are required!';
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            header('Location: /login');
+            exit;
         }
 
         $pdo = Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-        $stmt->execute([':email' => $email]);
+        $stmt->execute([':email' => $data['email']]);
         $user = $stmt->fetch();
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($data['password'], $user['password'])) {
             $_SESSION['user'] = $user;
             header('Location: /');
             exit;
         }
 
-        return 'Invalid email or password!';
+        $_SESSION['errors'] = ['Invalid email or password!'];
+        header('Location: /login');
+        exit;
     }
 }

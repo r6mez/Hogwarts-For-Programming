@@ -80,10 +80,22 @@
         .link {
             color: var(--button-color);
         }
+
+        .errors {
+            color:rgb(201, 58, 58);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <?php
+    $errors = $_SESSION['errors'] ?? [];
+    unset($_SESSION['errors']);
+    ?>
     <form action="/register/submit" method="POST">
         <img src="/assets/slytherin.png" class="logo">
         <h1>Welcome !</h1>
@@ -102,8 +114,8 @@
             I accept to be a part of this magical world
         </label>
 
-        <?php if (isset($errors) && !empty($errors)): ?>
-            <ul style="color: red;">
+        <?php if (!empty($errors)): ?>
+            <ul class="errors">
                 <?php foreach ($errors as $error): ?>
                     <li><?= htmlspecialchars($error) ?></li>
                 <?php endforeach; ?>
