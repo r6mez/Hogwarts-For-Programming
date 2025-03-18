@@ -1,0 +1,11 @@
+{
+    "name": "hogwarts/programming",
+    "description": "A PHP project for learning and building.",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
