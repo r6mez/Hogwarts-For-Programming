@@ -8,6 +8,7 @@ Follow these steps to set up the project on your local machine:
 
 1. Install [PHP](https://www.php.net/downloads) (version 7.4 or higher).
 2. Install [Composer](https://getcomposer.org/download/), the dependency manager for PHP.
+3. Install [MySQL](https://dev.mysql.com/downloads/) or any compatible database.
 
 ### Setup Instructions
 
@@ -22,16 +23,27 @@ Follow these steps to set up the project on your local machine:
    composer install
    ```
 
-3. Start the development server:
+3. Set up the database:
+   - Create a new database named `hogwarts`.
+   - Update the database credentials in `config/config.php` if necessary.
+   - Import the schema:
+     ```bash
+     mysql -u <username> -p hogwarts < Schema/Schema.sql
+     ```
+
+4. Start the development server:
    ```bash
    php -S localhost:8000 -t public
    ```
 
-4. Open your browser and navigate to `http://localhost:8000`.
+5. Open your browser and navigate to `http://localhost:8000`.
 
 ## Project Structure
 
-- `public/`: Entry point for the application.
-- `src/`: Application logic.
-- `config/`: Configuration files.
-- `vendor/`: Composer dependencies.
+- `public/`: Contains public-facing files, including the entry point `index.php` and static assets.
+- `src/`: Core application logic, including controllers, validators, and utility classes.
+- `config/`: Configuration files, such as database credentials and route definitions.
+- `Schema/`: SQL scripts for setting up the database schema.
+- `vendor/`: Composer dependencies (generated after running `composer install`).
+- `.gitignore`: Specifies files and directories to exclude from version control.
+- `README.md`: Documentation for setting up and understanding the project.
