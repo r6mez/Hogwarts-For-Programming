@@ -2,16 +2,36 @@
 
 namespace App\Controllers;
 
+use App\Core\Database;
+use App\Core\Application;
+use App\Validators\RegisterValidator;
+
 class RegisterController
 {
-    public function showRegisterForm(): string
+    public function showRegisterForm(array $errors = []): string
     {
-        return file_get_contents(__DIR__ . '/../views/register.php');
+        return Application::view('register', ['errors' => $errors]);
     }
 
     public function register(): string
     {
-        // Handle registration logic here
-        return 'Registration successful!';
+        $request = new RegisterValidator($_POST);
+        $errors = $request->validate();
+
+        if (!empty($errors)) {
+            return Application::view('register', ['errors' => $errors]);
+        }
+
+        $pdo = Database::getInstance();
+        $hashedPassword = password_hash($request->get('password'), PASSWORD_BCRYPT);
+        $stmt = $pdo->prepare("INSERT INTO users (name, email, password, type) VALUES (:name, :email, :password, 'Student')");
+        $stmt->execute([
+            ':name' => $request->get('name'),
+            ':email' => $request->get('email'),
+            ':password' => $hashedPassword,
+        ]);
+
+        header('Location: /');
+        exit;
     }
 }

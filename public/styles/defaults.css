@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --background-color: #1E201E;
+    --form-background-color: #3C3D37;
+    --text-color: #EEF0E5;
+    --input-background-color: rgb(71, 75, 69);
+    --button-color: #609966;
+    --button-hover-color: #9DC08B;
+}
+
+* {
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

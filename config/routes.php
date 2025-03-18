@@ -1,10 +1,12 @@
 <?php
 
+use App\Core\Application;
+
 return [
-    '/' => 'Welcome to Hogwarts for Programming!',
-    '/about' => 'About Hogwarts for Programming',
+    '/' => 'home', 
+    '/about' => 'about', 
     '/login' => [\App\Controllers\LoginController::class, 'showLoginForm'],
-    '/register' => [\App\Controllers\RegisterController::class, 'showRegisterForm'],
+    '/register' => function () { return Application::view('register', ['errors' => []]);},
     '/login/submit' => [\App\Controllers\LoginController::class, 'login'],
     '/register/submit' => [\App\Controllers\RegisterController::class, 'register'],
 ];

@@ -2,12 +2,15 @@
 
 namespace App\Core;
 
+use App\Core\Application;
+
 class Router
 {
     protected array $routes;
 
     public function __construct(array $routes)
     {
+        session_start(); // Start session for error handling
         $this->routes = $routes;
     }
 
@@ -17,7 +20,11 @@ class Router
         $route = $this->routes[$path] ?? null;
 
         if (is_string($route)) {
-            return $route; // Return static content
+            return Application::view($route); // Render static content using the view function
+        }
+
+        if (is_callable($route)) {
+            return $route(); // Execute closure for dynamic content
         }
 
         if (is_array($route) && count($route) === 2) {
@@ -28,6 +35,6 @@ class Router
             }
         }
 
-        return '404 - Page Not Found'; // Default response for undefined routes
+        return Application::view('404', ['message' => 'Page Not Found']); // Render a 404 view
     }
 }
