@@ -17,6 +17,14 @@ class Router
     public function resolve(string $uri): string
     {
         $path = parse_url($uri, PHP_URL_PATH);
+
+        // Redirect unauthenticated users to login page
+        $publicRoutes = ['/login', '/register', '/login/submit', '/register/submit'];
+        if (!isset($_SESSION['user']) && !in_array($path, $publicRoutes)) {
+            header('Location: /login');
+            exit;
+        }
+
         $route = $this->routes[$path] ?? null;
 
         if (is_string($route)) {
