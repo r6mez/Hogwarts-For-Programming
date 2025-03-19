@@ -1,6 +1,6 @@
 use hogwarts;
 
-INSERT INTO house (name) VALUES
+INSERT INTO houses (name) VALUES
 ('Gryffindor'),
 ('Hufflepuff'),
 ('Ravenclaw'),
