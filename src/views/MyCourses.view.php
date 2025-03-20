@@ -23,14 +23,23 @@
             color: var(--text-color);
             text-align: center;
         }
-        
+        /* form {
+            background-color: var(--secondary-background-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        } */
         label {
             margin-bottom: 5px;
             color: var(--text-color);
         }
         input {
+            width: 1100;
             margin-bottom: 15px;
-            width: 1000px;
             padding: 10px;
             border: none;
             border-radius: 4px;
@@ -65,13 +74,10 @@
             background-color: #333;
         }
         button {
-            display: inline-block;
             background-color: #28a745; 
             color: white;
             border: none;
-            width: 80px;
-            height: 40px;
-            padding: 3px 10px; 
+            padding: 3px 6px; 
             font-size: 12px;  
             cursor: pointer;
             border-radius: 4px;
@@ -112,19 +118,17 @@
         .enroll-btn i {
             font-size: 12px;
         }
-        button:hover {
+        .enroll-btn:hover {
             background-color: #218838;
         }
-        td form {
-            display: inline-block; 
-            margin: 0; 
-            padding: 0; 
-            background: transparent; 
-            border: none;
-        }
         
+        .container {
+            width: 100%;
+            text-align: center; 
+        }
     </style>
 </head>
+
 <body>
     <?php
     $errors = $_SESSION['errors'] ?? [];
@@ -132,60 +136,28 @@
     ?>
     <?php include __DIR__ . '/partials/navbar.php'; ?>
     
-    <?php if (!empty($course)): ?> 
+    <?php if (!empty($Mycourse)): ?> 
         <div>
-            <div>
-                <form action="/courseSearch" method="get">
-                    <input name="SearchId" type="text" placeholder="SearchId" required>
-                    <button type="submit">Search</button>
-                </form>
-                <form action="/course">
-                    <button type="submit">Back</button>
-                </form>
-            </div>
-            <div>
-            <table >
+        <table >
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Course Name</th>
-                    <th>Professor</th>
-                    <th>Enroll</th>
                 </tr>
             </thead>
             <tbody>
-                
-                <?php foreach ($course as $cours): ?>
-                    
+                <?php foreach ($Mycourse as $Mycours): ?>
                     <tr>
-                        <td><?= htmlspecialchars($cours['id']) ?></td>
-                        <td><?= htmlspecialchars($cours['name']) ?></td>
-                        <td><?= htmlspecialchars($cours['professor'] ?? "N/l") ?></td>
-                        <td>
-                            <form action="/enroll" method="post">
-                                <input type="hidden" name="course_id" value="<?= htmlspecialchars($cours['id']) ?>">
-                                <button type="submit" class="enroll-btn">
-                                    <i class="fa fa-plus"></i> 
-                                </button>
-                            </form>
-                            <?php if (!empty($errors[$cours['id']])): ?>
-                                <ul class="errors">
-                                    <?php foreach ($errors as $error): ?>
-                                        <li><?= htmlspecialchars($error) ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </td>
+                        <td><?= htmlspecialchars($Mycours['id']) ?></td>
+                        <td><?= htmlspecialchars($Mycours['name']) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-            </div>
-        
         </div>
     <?php else: ?>
-        <h2>No courses found.</h2>
-    <?php endif; ?>
-    </form>
+        <h2>No Courses Found.</h2>
+    <?php endif; ?> 
 </body>
+
 </html>

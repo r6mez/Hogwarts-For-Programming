@@ -2,12 +2,14 @@
     <img src="/assets/slytherin.png" class="logo">
     <div class="buttons">
         <div>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
+        <a href="/" class="<?= ($_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>">Home</a>
+        <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] == '/about') ? 'active' : '' ?>">About</a>
         </div>
         <div>
             <?php if (isset($_SESSION['user'])): ?>
-                <a href="/profile">Profile</a>
+                <a href="/profile" class="<?= ($_SERVER['REQUEST_URI'] == '/profile') ? 'active' : '' ?>">Profile</a>
+                <a href="/course" class="<?= ($_SERVER['REQUEST_URI'] == '/course') ? 'active' : '' ?>">Course</a>
+                <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">MyCourse</a>
                 <a href="/logout">Logout</a>
             <?php else: ?>
                 <a href="/login">Login</a>
@@ -62,5 +64,10 @@
     width: 30px;
     height: 30px;
     align-items: center;
+}
+.navbar a.active {
+    color: var(--button-hover-color);
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--button-hover-color); /* Glowing effect */
 }
 </style>
