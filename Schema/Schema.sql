@@ -19,8 +19,7 @@ points int
 
 create table students (
 id int primary key,
-country varchar(255),
-phone varchar(255),
+
 points int ,
 house_id int  ,
 constraint fk_house_stud foreign key students(house_id) references Houses(id),
@@ -30,8 +29,8 @@ constraint fk_stud_user foreign key students(id)  references users(id) ON DELETE
 create table professors (
 id int  primary key,
 experience varchar(255),
-user_id int  ,
-constraint fk_prof_user foreign key professors(user_id)  references users(id) ON DELETE CASCADE
+
+constraint fk_prof_user foreign key professors(id)  references users(id) ON DELETE CASCADE
 );
 
 create table MagicalItem (
