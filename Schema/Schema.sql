@@ -19,8 +19,6 @@ points int
 
 create table students (
 id int primary key,
-country varchar(255),
-phone varchar(255),
 points int ,
 house_id int  ,
 constraint fk_house_stud foreign key students(house_id) references Houses(id),
