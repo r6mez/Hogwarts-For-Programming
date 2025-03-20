@@ -106,7 +106,7 @@
             align-items: center;
             justify-content: center;
             gap: 4px; 
-            width: 50px; 
+            width: 30px; 
             height: 30px; 
         }
         .enroll-btn i {
@@ -124,38 +124,18 @@
         }
         
         .search-container {
-    position: relative; /* Fixes it at the top */
-    /* top : 120px; */
-    left: 50%; /* Centers it horizontally */
-    transform: translateX(-50%); 
-    width: 50%; /* Adjust width as needed */
+    position: sticky; /* Keeps it fixed relative to its parent */
+    margin-top: 50px;
     
-    padding: 10px 20px;
-   
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    gap: 10px;
-    border-radius: 8px;
+    padding: 10px;
+    z-index: 10; /* Ensures it stays above the table */
 }
-
-/* Ensure content doesn't hide behind the fixed search */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Prevent items from stretching */
-}
-
 * {
-    margin: 0;
-    padding: 0;
   box-sizing: border-box;
 }
 
 body {
-   /* padding-top: 4px; */
-   /* margin-top: 10px; */
-   position: center;
+    position: center;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -164,7 +144,6 @@ body {
   float: left;
   width: 25%;
   padding: 0 10px;
-  margin: 0 -5px;
 }
 
 /* Remove extra left and right margins, due to padding in columns */
@@ -178,7 +157,12 @@ body {
 }
 
 /* Style the counter cards */
-
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
 
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
@@ -187,34 +171,6 @@ body {
     display: block;
     margin-bottom: 20px;
   }
-}
-.card-container {
-    position: relative;
-    left: 0px;
-    /* top:150px; */
-    color: #0f0; 
-    display: flex;
-    flex-direction: column; /* Single column */
-    align-items: center; /* Center cards */
-    gap: 20px; /* Space between cards */
-    
-    
-}
-
-/* Dark Mode Card Styling */
-.card {
-    
-    width: 1000px;
-    padding: 16px;
-    /* text-align:; */
-    background-color: var(--secondary-background-color); /* Dark background */
-    color: #EEF0E5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
-    border-radius: 8px;
-    border: 1px solid #333; /* Subtle border */
-}
-body {
-    padding-top: 500px; /* Adjust based on your navbar height */
 }
         
         
@@ -242,15 +198,25 @@ body {
                     <button type="submit">Back</button>
                 </form>
             </div>
-            
-            <div class="card-container">
-                <?php foreach ($course as $cours): ?>
-                    <div class="card">
-                        <h3>Course Name: <?= htmlspecialchars($cours['name']) ?></h3>
+            <div>
+            <table >
+            <thead>
+                <tr>
                     
-                        <?='Professor: ' . htmlspecialchars($cours['professor'] ?? "N/l") ?>
-
+                    <th>Course Name</th>
+                    <th>Professor</th>
+                    <th>Enroll</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <?php foreach ($course as $cours): ?>
+                    
+                    <tr>
                         
+                        <td><?= htmlspecialchars($cours['name']) ?></td>
+                        <td><?= htmlspecialchars($cours['professor'] ?? "N/l") ?></td>
+                        <td>
                             <form action="/enroll" method="post">
                                 <input type="hidden" name="course_id" value="<?= htmlspecialchars($cours['id']) ?>">
                                 <button type="submit" class="enroll-btn">
@@ -258,12 +224,12 @@ body {
                                 </button>
                             </form>
                             
-                        
-                    </div>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
-                </div>
-            
-                
+            </tbody>
+        </table>
+            </div>
         
         </div>
     <?php else: ?>

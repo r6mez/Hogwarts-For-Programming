@@ -4,12 +4,13 @@
         <div>
         <a href="/" class="<?= ($_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>">Home</a>
         <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] == '/about') ? 'active' : '' ?>">About</a>
+        <a href="/course" class="<?= ($_SERVER['REQUEST_URI'] == '/course') ? 'active' : '' ?>">Course</a>
+                <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">MyCourse</a>
         </div>
         <div>
             <?php if (isset($_SESSION['user'])): ?>
                 <a href="/profile" class="<?= ($_SERVER['REQUEST_URI'] == '/profile') ? 'active' : '' ?>">Profile</a>
-                <a href="/course" class="<?= ($_SERVER['REQUEST_URI'] == '/course') ? 'active' : '' ?>">Course</a>
-                <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">MyCourse</a>
+                
                 <a href="/logout">Logout</a>
             <?php else: ?>
                 <a href="/login">Login</a>

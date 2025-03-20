@@ -11,8 +11,9 @@ return [
     '/register/submit' => [\App\Controllers\RegisterController::class, 'register'],
     '/course' => [\App\Controllers\CourseController::class, 'showCourses'],
     '/enroll' => [\App\Controllers\EnrollController::class, 'registerCourse'],
+    '/deRegister' => [\App\Controllers\EnrollController::class, 'deRegisterCourse'],
     '/MyCourses' => [\App\Controllers\CourseController::class, 'showCoursesByStudentId'],
-    '/courseSearch' => [\App\Controllers\CourseController::class, 'searchById'],
+    '/courseSearch' => [\App\Controllers\CourseController::class, 'searchByName'],
     '/logout' => function () {
         session_start();
         session_destroy();

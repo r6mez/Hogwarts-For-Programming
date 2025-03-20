@@ -34,6 +34,19 @@ class EnrollController {
 
         
     }
+    public function deRegisterCourse(): void
+    {
+        $data = $_POST;
+        $pdo = Database::getInstance();
+        $stmt = $pdo->prepare("DELETE FROM enroll WHERE id_stud = :student_id AND id_cour = :course_id");
+        $stmt->execute([
+            ':student_id' => $_SESSION['user']['id'],
+            ':course_id' => $data['course_id']
+        ]);
+
+        header('Location: /MyCourses');
+        exit;
+    }
 
     
 }

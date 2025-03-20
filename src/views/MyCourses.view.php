@@ -7,7 +7,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
-        .logo {
+       .logo {
             width: 120px;
             height: 120px;
             margin: 0 auto;
@@ -23,85 +23,14 @@
             color: var(--text-color);
             text-align: center;
         }
-        /* form {
-            background-color: var(--secondary-background-color);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-        } */
+        
         label {
             margin-bottom: 5px;
             color: var(--text-color);
         }
-        input {
-            width: 1100;
-            margin-bottom: 15px;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            background-color: var(--input-background-color);
-            color: var(--text-color);
-        }
-        input[type="checkbox"] {
-            margin-right: 10px;
-            accent-color: var(--button-color);
-            transform: scale(1.2);
-            cursor: pointer;
-        }
-        table {
-            width: 1100px;
-            border-collapse: collapse;
-            background-color: #222;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #444;
-        }
-        th {
-            background-color: #111;
-            color: #0f0; 
-        }
-        tr:hover {
-            background-color: #333;
-        }
-        button {
-            background-color: #28a745; 
-            color: white;
-            border: none;
-            padding: 3px 6px; 
-            font-size: 12px;  
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        .goToLogin {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--text-color);
-        }
-        .link {
-            color: var(--button-color);
-        }
-        .errors {
-            color:rgb(201, 58, 58);
-            margin: 0;
-            padding: 0;
-            padding-bottom: 20px;
-            padding-left: 20px;
-        }
-        .enroll-btn {
-            background-color: #28a745;
+        
+        .disenroll-btn {
+            background-color:rgb(201, 58, 58);
             color: white;
             border: none;
             padding: 3px 6px; 
@@ -112,20 +41,102 @@
             align-items: center;
             justify-content: center;
             gap: 4px; 
-            width: 30px; 
+            width: 50px; 
             height: 30px; 
         }
-        .enroll-btn i {
+        .disenroll-btn i {
             font-size: 12px;
         }
-        .enroll-btn:hover {
-            background-color: #218838;
+        .disenroll-btn:hover {
+            background-color: rgb(201, 58, 58);
         }
         
-        .container {
-            width: 100%;
-            text-align: center; 
-        }
+        
+        .search-container {
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 50%; 
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+     gap: 10px;
+    border-radius: 8px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   padding-top: 4px;
+   
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  margin: 0 -5px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.card-container {
+    position: relative;
+    left: 0px;
+    top:150px;
+    color: #0f0; 
+    display: flex;
+    flex-direction: column; /* Single column */
+    align-items: center; /* Center cards */
+    gap: 20px; /* Space between cards */
+    
+    
+}
+
+/* Dark Mode Card Styling */
+.card {
+    
+    width: 1000px;
+    padding: 16px;
+    position: center;
+    background-color: var(--secondary-background-color); /* Dark background */
+    color: #EEF0E5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    border-radius: 8px;
+    border: 1px solid #333; 
+}
+
     </style>
 </head>
 
@@ -137,24 +148,24 @@
     <?php include __DIR__ . '/partials/navbar.php'; ?>
     
     <?php if (!empty($Mycourse)): ?> 
-        <div>
-        <table >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Course Name</th>
-                </tr>
-            </thead>
-            <tbody>
+        
+        <div class="card-container">
                 <?php foreach ($Mycourse as $Mycours): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($Mycours['id']) ?></td>
-                        <td><?= htmlspecialchars($Mycours['name']) ?></td>
-                    </tr>
+                    <div class="card">
+                    
+                        <h3>Course Name: <?= htmlspecialchars($Mycours['name']) ?></h3>
+                    
+                        <?= 'Professor: '. htmlspecialchars($Mycours['professor'] ?? "N/l") ?>
+                        <form action="/deRegister" method="post">
+                                <input type="hidden" name="course_id" value="<?= htmlspecialchars($Mycours['id']) ?>">
+                                <button type="submit" class="disenroll-btn">
+                                    <i class="fa fa-minus"></i> 
+                                </button>
+                            </form>
+                    </div>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
-        </div>
+                </div>
+        
     <?php else: ?>
         <h2>No Courses Found.</h2>
     <?php endif; ?> 
