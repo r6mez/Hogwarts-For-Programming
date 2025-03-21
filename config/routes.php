@@ -4,7 +4,6 @@ use App\Core\Application;
 
 return [
     '/' => 'home', 
-    '/about' => 'about', 
     
     '/login' => function () { return Application::view('login', ['errors' => []]);},
     '/register' => function () { return Application::view('register', ['errors' => []]);},
