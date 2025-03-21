@@ -94,8 +94,14 @@
 </head>
 
 <body>
-    <form action="/login/submit" method="POST">
-        <img src="/assets/slytherin.png" class="logo">
+    <form action="/login/submit" method="POST" onsubmit="sanitizeInputs()">
+        <script>
+            function sanitizeInputs() {
+                document.getElementById('email').value = document.getElementById('email').value.trim();
+                document.getElementById('password').value = document.getElementById('password').value.trim();
+            }
+        </script>
+        <img src="/assets/Hogwarts.png" class="logo">
         <h1>Welcome Back!</h1>
         <div class="title">Login to Hogwarts School</div>
         <label for="email">Email</label>

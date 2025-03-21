@@ -4,6 +4,9 @@ use App\Core\Application;
 
 return [
     '/' => 'home', 
+    '/profile' => [\App\Controllers\ProfileController::class, 'showProfile'],
+    '/profile/edit' => [\App\Controllers\ProfileController::class, 'editProfile'],
+    '/profile/edit/submit' => [\App\Controllers\ProfileController::class, 'updateProfile'],
     
     '/login' => function () { return Application::view('login', ['errors' => []]);},
     '/register' => function () { return Application::view('register', ['errors' => []]);},
