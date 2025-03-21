@@ -5,6 +5,15 @@
     <title>Login</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
+        body {
+            color: var(--primary-background-color);;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
         .logo {
             width: 120px;
             height: 120px;
@@ -53,7 +62,7 @@
         button {
             padding: 10px;
             background-color: var(--button-color);
-            color: #fff;
+            color: var(--text-color);
             border: none;
             border-radius: 4px;
             font-size: 16px;
@@ -75,7 +84,7 @@
         }
 
         .errors {
-            color:rgb(201, 58, 58);
+            color: rgb(201, 58, 58);
             margin: 0;
             padding: 0;
             padding-bottom: 20px;

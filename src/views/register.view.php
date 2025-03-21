@@ -5,6 +5,14 @@
     <title>Register</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
+        body {
+            color: var(--primary-background-color);;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
         .logo {
             width: 120px;
             height: 120px;

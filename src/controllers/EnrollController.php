@@ -28,7 +28,7 @@ class EnrollController {
                 ':course_id' => $data['course_id']
             ]);
 
-            header('Location: /course');
+            header('Location: /courses');
             exit;
         }
 

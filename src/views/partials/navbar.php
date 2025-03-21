@@ -4,8 +4,8 @@
         <div>
         <a href="/" class="<?= ($_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>">Home</a>
         <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] == '/about') ? 'active' : '' ?>">About</a>
-        <a href="/course" class="<?= ($_SERVER['REQUEST_URI'] == '/course') ? 'active' : '' ?>">Course</a>
-                <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">MyCourse</a>
+        <a href="/courses" class="<?= ($_SERVER['REQUEST_URI'] == '/courses') ? 'active' : '' ?>">Course</a>
+                <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">My Courses</a>
         </div>
         <div>
             <?php if (isset($_SESSION['user'])): ?>
