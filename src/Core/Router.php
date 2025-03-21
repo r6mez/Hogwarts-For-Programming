@@ -19,7 +19,7 @@ class Router
         $path = parse_url($uri, PHP_URL_PATH);
 
         // Redirect unauthenticated users to login page
-        $publicRoutes = ['/login', '/register', '/login/submit', '/register/submit'];
+        $publicRoutes = ['/login', '/register', '/login/submit', '/register/submit' ,'/course'];
         if (!isset($_SESSION['user']) && !in_array($path, $publicRoutes)) {
             header('Location: /login');
             exit;

@@ -28,6 +28,11 @@ class RegisterController
             ':email' => $data['email'],
             ':password' => $hashedPassword,
         ]);
+        $userId = $pdo->lastInsertId(); // Get the ID of the newly inserted user
+        $stmt = $pdo->prepare("INSERT INTO students (id, points, house_id) VALUES (:id, 0, NULL)");
+        $stmt->execute([
+            ':id' => $userId,
+        ]);
 
         $userId = $pdo->lastInsertId(); // Get the ID of the newly inserted user
         $stmt = $pdo->prepare("INSERT INTO students (id, points, house_id) VALUES (:id, 0, NULL)");

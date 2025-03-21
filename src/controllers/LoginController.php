@@ -32,6 +32,7 @@ class LoginController
 
         if ($user && password_verify($data['password'], $user['password'])) {
             $_SESSION['user'] = $user;
+            
             header('Location: /');
             exit;
         }

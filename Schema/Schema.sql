@@ -28,8 +28,8 @@ constraint fk_stud_user foreign key students(id)  references users(id) ON DELETE
 create table professors (
 id int  primary key,
 experience varchar(255),
-user_id int  ,
-constraint fk_prof_user foreign key professors(user_id)  references users(id) ON DELETE CASCADE
+
+constraint fk_prof_user foreign key professors(id)  references users(id) ON DELETE CASCADE
 );
 
 create table MagicalItem (
