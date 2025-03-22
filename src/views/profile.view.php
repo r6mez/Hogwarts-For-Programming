@@ -11,6 +11,7 @@
             justify-content: space-between;
             padding: 20px;
             font-family: Arial, sans-serif;
+            margin: 0;
         }
 
         .profile-info {
@@ -99,10 +100,9 @@
     <div class="content-wrapper">
         <?php include __DIR__ . '/partials/navbar.php'; ?>
         <div>
-            <h1>Profile</h1>
+            <h1 style="padding: 0; margin: 0;">Profile</h1>
         </div>
         <?php
-        include __DIR__ . '/partials/navbar.php';
         $houseColors = [
             'Gryffindor' => '#740001',
             'Hufflepuff' => '#ecb939',
@@ -140,18 +140,6 @@
                 <button onclick="location.href='/profile/edit'">
                     Edit Profile
                 </button>
-            </div>
-        </div>
-        <div class="card-container">
-            <div class="card">
-                <div>
-                    <img src="/assets/Diagon.png" class="logo">
-                    <form action="/DiagonAlley" method="get">
-                        <button type="submit">Shopping</button>
-                    </form>
-
-                </div>
-
             </div>
         </div>
     </div>

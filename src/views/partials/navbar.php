@@ -6,6 +6,7 @@
             <?php if (!isset($_SESSION['user']) || $_SESSION['user']['type'] !== 'Professor'): ?>
                 <a href="/courses" class="<?= ($_SERVER['REQUEST_URI'] == '/courses') ? 'active' : '' ?>">Course</a>
                 <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">My Courses</a>
+                <a href="/DiagonAlley" class="<?= ($_SERVER['REQUEST_URI'] == '/DiagonAlley') ? 'active' : '' ?>">Diagon Alley</a>
             <?php endif; ?>
         </div>
         <div>

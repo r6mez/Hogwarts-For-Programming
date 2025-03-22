@@ -19,7 +19,6 @@ return [
     '/deRegister' => [\App\Controllers\EnrollController::class, 'deRegisterCourse'],
     '/MyCourses' => [\App\Controllers\CourseController::class, 'showCoursesByStudentId'],
     '/courseSearch' => [\App\Controllers\CourseController::class, 'searchByName'],
-    '/profile' => 'profile',
     '/DiagonAlley' => [\App\Controllers\MagicalItemController::class, 'showMagicalItems'],
     '/buyItem' => [\App\Controllers\MagicalItemController::class, 'buyItem'],
 

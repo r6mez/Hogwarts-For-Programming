@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Core\Database;
 use App\Core\Application;
-use App\Validators\RegisterValidator;
 class MagicalItemController{
     public static function showMagicalItems(){
         $pdo = Database::getInstance();
