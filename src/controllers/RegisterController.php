@@ -29,16 +29,13 @@ class RegisterController
             ':password' => $hashedPassword,
         ]);
         $userId = $pdo->lastInsertId(); // Get the ID of the newly inserted user
-        $stmt = $pdo->prepare("INSERT INTO students (id, points, house_id) VALUES (:id, 0, NULL)");
+
+        $randomHouseId = rand(1, 4); // Generate a random house_id between 1 and 4
+        $stmt = $pdo->prepare("INSERT INTO students (id, points, house_id) VALUES (:id, 0, :house_id)");
         $stmt->execute([
             ':id' => $userId,
+            ':house_id' => $randomHouseId,
         ]);
-
-        // $userId = $pdo->lastInsertId(); // Get the ID of the newly inserted user
-        // $stmt = $pdo->prepare("INSERT INTO students (id, points, house_id) VALUES (:id, 0, NULL)");
-        // $stmt->execute([
-        //     ':id' => $userId,
-        // ]);
 
         header('Location: /');
         exit;
