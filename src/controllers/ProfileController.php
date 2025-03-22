@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\StudentController;
 use App\Controllers\ProfessorController;
 use App\Core\Application;
+use App\Controllers\MagicalItemController;
 
 class ProfileController
 {
@@ -17,13 +18,19 @@ class ProfileController
             $student = $studentController->getStudentByID($user['id']);
             $user['points'] = $student['points'];
             $user['house'] = $student['house'];
+            
         } else if ($user['type'] == 'Professor') {
             $professorController = new ProfessorController();
             $professor = $professorController->getProfessorByID($user['id']);
             $user['experience'] = $professor['experience'];
         }
 
-        return Application::view('profile', ['user' => $user]);
+        $magicalItems = MagicalItemController::showMagicalItemsByUserId($user['id']);
+
+        return Application::view('profile', [
+            'user' => $user,
+            'magicalItems' => $magicalItems
+        ]);
     }
 
     public function editProfile()
