@@ -49,7 +49,7 @@
             margin-left: 5px;
         }
 
-        button {
+        .edit-btn {
             padding: 10px;
             background-color: var(--button-color);
             color: var(--text-color);
@@ -60,7 +60,7 @@
             margin-top: 10px;
         }
 
-        button:hover {
+        .edit-btn:hover {
             background-color: var(--button-hover-color);
         }
 
@@ -68,33 +68,50 @@
             position: relative;
             color: var(--secondary-background-color);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 10px;
             width: 100%;
+            height: 100%;
         }
 
         .card {
+            flex: 1 1 calc(33.33% - 10px);
             width: 30%;
-            height: 100px;
             padding: 16px;
             background-color: var(--secondary-background-color);
             color: var(--text-color);
             border-radius: 10px;
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: space-between;
         }
 
         .card .logo {
-            width: 105px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             align-items: center;
+        }
+
+        .card-content {
+            flex-direction: column;
+        }
+
+        .sell-btn {
+            background-color: #d9534f;
+            margin-top: 10px;
+            padding: 5px 15px 5px 15px;
+            color: var(--text-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sell-btn:hover {
+            background-color: #c9302c;
         }
     </style>
 </head>
-
-
 
 <body>
     <div class="content-wrapper">
@@ -137,14 +154,40 @@
                     <span><?= $points ?></span>
                     <img src="/assets/point.png" alt="Coins Icon" class="coins-icon">
                 </div>
-                <button onclick="location.href='/profile/edit'">
+                <button onclick="location.href='/profile/edit'" class="edit-btn">
                     Edit Profile
                 </button>
             </div>
         </div>
+        <br>
+        <h2>Your Magical Items</h2>
+        <br>
+        <?php if (!empty($magicalItems)): ?>
+            <div class="card-container">
+                <?php foreach ($magicalItems as $item): ?>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><?= htmlspecialchars($item['type']) ?></h3>
+                            <p style="display: flex; align-items: center; margin: 0;">
+                                <?= 'Price: ' ?>
+                                <img src="/assets/point.png" alt="Points Icon" style="width: 25px; height: 25px;">
+                                <?= htmlspecialchars($item['price']) ?>
+                            </p>
+                            <form action="/sellItem" method="post">
+                                <input type="hidden" name="item_id" value="<?= htmlspecialchars($item['id']) ?>">
+                                <input type="hidden" name="item_price" value="<?= htmlspecialchars($item['price']) ?>">
+                                <button type="submit" class="sell-btn">Sell</button>
+                            </form>
+                        </div>
+                        <?php $link = "/assets/" . $item['imag']; ?>
+                        <img src="<?= htmlspecialchars($link) ?>" class="logo">
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p>You do not own any magical items.</p>
+        <?php endif; ?>
     </div>
-
 </body>
-
 
 </html>

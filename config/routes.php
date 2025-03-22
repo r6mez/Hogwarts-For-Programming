@@ -21,5 +21,6 @@ return [
     '/courseSearch' => [\App\Controllers\CourseController::class, 'searchByName'],
     '/DiagonAlley' => [\App\Controllers\MagicalItemController::class, 'showMagicalItems'],
     '/buyItem' => [\App\Controllers\MagicalItemController::class, 'buyItem'],
+    '/sellItem' => [\App\Controllers\MagicalItemController::class, 'sellItem'],
 
 ];

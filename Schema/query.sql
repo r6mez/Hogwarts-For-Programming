@@ -35,12 +35,14 @@ INSERT INTO professors (id, experience) VALUES
 (10, '20 years of Defense Against the Dark Arts');
 
 -- Insert Magical Items
-INSERT INTO MagicalItem (price, Type, stud_id) VALUES
-(50, 'Invisibility Cloak', 1),
-(30, 'Time Turner', 2),
-(20, 'Sneakoscope', 3),
-(15, 'Remembrall', 4),
-(60, 'Marauder’s Map', 5);
+
+INSERT INTO MagicalItem (price, Type, stud_id, imag) VALUES
+(50, 'Invisibility Cloak', null, 'cloak.png'),
+(30, 'Crystal Ball', null, 'ball.png'),
+(60, 'Marauder’s Map', null, 'map.png'),
+(30, 'Potion', NULL, 'potion.png'),
+(75, 'Flying Broom', NULL, 'broom.png'),
+(75, 'Spell Book', NULL, 'book.png');
 
 -- Insert Wands
 INSERT INTO wand (woodtype, coretrpe, stud_id) VALUES
@@ -81,29 +83,3 @@ INSERT INTO message (sender_id, resiever_id, connent) VALUES
 INSERT INTO question (answer, body, quiz_id) VALUES
 (TRUE, 'What spell repels Dementors?', 1),
 (FALSE, 'Is Snape a Death Eater?', 2);
-
-alter table MagicalItem
-drop constraint fk_student_item 
-add constraint fk_student_item foreign key MagicalItem(stud_id) references students(id); 
-
-
-alter table MagicalItem 
-add imag varchar(255);
-
-INSERT INTO MagicalItem (price, Type, stud_id, imag) VALUES
-(50, 'Invisibility Cloak', null, 'cloak.png'),
-(30, 'Crystal Ball', null, 'ball.png'),
-(60, 'Marauder’s Map', null, 'map.png'),
-(50, 'Wand', NULL, 'wand.png'),
-(30, 'Potion', NULL, 'potion.png'),
-(75, 'Flying Broom', NULL, 'broom.png'),
-(75, 'Spell Book', NULL, 'book.png'),
-(100, 'Invisibility Cloak', NULL, 'cloak.png'),
-(50, 'Wand', NULL, 'wand.png'),
-(30, 'Potion', NULL, 'potion.png'),
-(75, 'Flying Broom', NULL, 'broom.png'),
-(75, 'Spell Book', NULL, 'book.png'),
-(100, 'Invisibility Cloak', NULL, 'cloak.png');
-
-ALTER TABLE users 
-ADD updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;

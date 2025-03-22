@@ -36,7 +36,8 @@ create table MagicalItem (
 id int primary key auto_increment,
 price decimal ,
 Type varchar(255),
-stud_id int ,
+stud_id int,
+imag varchar(255),
 constraint fk_student_item foreign key MagicalItem(stud_id) references students(id)
 ); 
 
