@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
         body {
-            color: var(--primary-background-color);;
+            color: var(--primary-background-color);
+            ;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+
         .logo {
             width: 120px;
             height: 120px;
@@ -90,7 +92,7 @@
         }
 
         .errors {
-            color:rgb(201, 58, 58);
+            color: rgb(201, 58, 58);
             margin: 0;
             padding: 0;
             padding-bottom: 20px;
@@ -105,7 +107,7 @@
     unset($_SESSION['errors']);
     ?>
     <form action="/register/submit" method="POST">
-        <img src="/assets/slytherin.png" class="logo">
+        <img src="/assets/Hogwarts.png" class="logo">
         <h1>Welcome !</h1>
         <div class="title">Register to Hogwarts School</div>
         <label for="name">Name</label>

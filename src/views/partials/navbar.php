@@ -1,16 +1,16 @@
 <div class="navbar">
-    <img src="/assets/slytherin.png" class="logo">
+    <img src="/assets/Hogwarts.png" class="logo">
     <div class="buttons">
         <div>
-        <a href="/" class="<?= ($_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>">Home</a>
-        <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] == '/about') ? 'active' : '' ?>">About</a>
-        <a href="/courses" class="<?= ($_SERVER['REQUEST_URI'] == '/courses') ? 'active' : '' ?>">Course</a>
+            <a href="/" class="<?= ($_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>">Home</a>
+            <?php if (!isset($_SESSION['user']) || $_SESSION['user']['type'] !== 'Professor'): ?>
+                <a href="/courses" class="<?= ($_SERVER['REQUEST_URI'] == '/courses') ? 'active' : '' ?>">Course</a>
                 <a href="/MyCourses" class="<?= ($_SERVER['REQUEST_URI'] == '/MyCourses') ? 'active' : '' ?>">My Courses</a>
+            <?php endif; ?>
         </div>
         <div>
             <?php if (isset($_SESSION['user'])): ?>
                 <a href="/profile" class="<?= ($_SERVER['REQUEST_URI'] == '/profile') ? 'active' : '' ?>">Profile</a>
-                
                 <a href="/logout">Logout</a>
             <?php else: ?>
                 <a href="/login">Login</a>
@@ -62,8 +62,8 @@
 }
 
 .navbar .logo {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     align-items: center;
 }
 .navbar a.active {
