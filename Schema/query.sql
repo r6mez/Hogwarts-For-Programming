@@ -104,3 +104,6 @@ INSERT INTO MagicalItem (price, Type, stud_id, imag) VALUES
 (75, 'Flying Broom', NULL, 'broom.png'),
 (75, 'Spell Book', NULL, 'book.png'),
 (100, 'Invisibility Cloak', NULL, 'cloak.png');
+
+ALTER TABLE users 
+ADD updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
