@@ -29,9 +29,16 @@ class LoginController
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->execute([':email' => $data['email']]);
         $user = $stmt->fetch();
+        $stmt = $pdo->prepare("select * from students s 
+            join users u
+            on s.id = u.id
+            where u.id = :id;");
+                    $stmt->execute([':id' => $user['id']]);
+                    $student = $stmt->fetch();
 
         if ($user && password_verify($data['password'], $user['password'])) {
             $_SESSION['user'] = $user;
+            $_SESSION['student'] = $student;
             
             header('Location: /');
             exit;

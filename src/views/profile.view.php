@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
@@ -13,15 +12,17 @@
             padding: 20px;
             font-family: Arial, sans-serif;
         }
+
         .profile-info {
             display: flex;
             align-items: center;
         }
-        
+
         p {
             margin: 0;
             padding: 0;
         }
+
         .house-logo {
             width: 70px;
             height: 70px;
@@ -29,15 +30,18 @@
             border-radius: 50%;
             padding: 20px;
         }
+
         .user-details {
             display: flex;
             flex-direction: column;
         }
+
         .points-container {
             display: flex;
             align-items: center;
             font-size: 18px;
         }
+
         .coins-icon {
             width: 40px;
             height: 40px;
@@ -58,11 +62,47 @@
         button:hover {
             background-color: var(--button-hover-color);
         }
+
+        .card-container {
+            position: relative;
+            color: var(--secondary-background-color);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .card {
+            width: 30%;
+            height: 100px;
+            padding: 16px;
+            background-color: var(--secondary-background-color);
+            color: var(--text-color);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card .logo {
+            width: 105px;
+            height: 70px;
+            align-items: center;
+        }
     </style>
 </head>
+
+
+
 <body>
-    <?php 
-        include __DIR__ . '/partials/navbar.php'; 
+    <div class="content-wrapper">
+        <?php include __DIR__ . '/partials/navbar.php'; ?>
+        <div>
+            <h1>Profile</h1>
+        </div>
+        <?php
+        include __DIR__ . '/partials/navbar.php';
         $houseColors = [
             'Gryffindor' => '#740001',
             'Hufflepuff' => '#ecb939',
@@ -80,28 +120,43 @@
             $points = $user['points'] . ' Points';
             $houseDetails = $user['type'] . ' - ' . $user['house'];
         }
-    ?>
-    <div class="profile-container content-wrapper">
-        <div class="profile-info">
-            <img src="/assets/<?= $houseLogo ?>" class="house-logo" style="background-color: <?= htmlspecialchars($houseColor) ?>;">
-            <div class="user-details">
-                <h2 class="name"><?= $user['name'] ?></h2>
-                <p class="email"><?= $user['email'] ?></p>
-                <?php if ($houseDetails): ?>
-                    <p class="details"><?= $houseDetails ?></p>
-                <?php endif; ?>
+        ?>
+        <div class="profile-container content-wrapper">
+            <div class="profile-info">
+                <img src="/assets/<?= $houseLogo ?>" class="house-logo" style="background-color: <?= htmlspecialchars($houseColor) ?>;">
+                <div class="user-details">
+                    <h2 class="name"><?= $user['name'] ?></h2>
+                    <p class="email"><?= $user['email'] ?></p>
+                    <?php if ($houseDetails): ?>
+                        <p class="details"><?= $houseDetails ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div>
+                <div class="points-container">
+                    <span><?= $points ?></span>
+                    <img src="/assets/point.png" alt="Coins Icon" class="coins-icon">
+                </div>
+                <button onclick="location.href='/profile/edit'">
+                    Edit Profile
+                </button>
             </div>
         </div>
-        <div>
-            <div class="points-container">
-                <span><?= $points ?></span>
-                <img src="/assets/point.png" alt="Coins Icon" class="coins-icon">
+        <div class="card-container">
+            <div class="card">
+                <div>
+                    <img src="/assets/Diagon.png" class="logo">
+                    <form action="/DiagonAlley" method="get">
+                        <button type="submit">Shopping</button>
+                    </form>
+
+                </div>
+
             </div>
-            <button onclick="location.href='/profile/edit'">
-                Edit Profile
-            </button> 
         </div>
     </div>
-</body>
-</html>
 
+</body>
+
+
+</html>

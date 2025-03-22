@@ -37,7 +37,7 @@ id int primary key auto_increment,
 price decimal ,
 Type varchar(255),
 stud_id int ,
-constraint fk_student_item foreign key MagicalItem(id) references students(id)
+constraint fk_student_item foreign key MagicalItem(stud_id) references students(id)
 ); 
 
 create table wand (
