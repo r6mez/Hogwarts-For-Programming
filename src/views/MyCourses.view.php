@@ -6,6 +6,44 @@
     <title>My Courses</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
+        .nav {
+            padding: 20px;
+            display: flex;
+            justify-content: start;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        li {
+            position: relative;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #bbb;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            position: relative;
+            margin: 10px;
+        }
+
+        a.active {
+            color: var(--button-hover-color);
+            font-weight: bold;
+            text-shadow: 0 0 10px var(--button-hover-color);
+        }
+
+        a:hover {
+            color: var(--button-hover-color);
+        }
+
         input {
             margin-bottom: 15px;
             padding: 10px;
@@ -44,7 +82,7 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            width: 100%; 
+            width: 100%;
         }
 
         .card {
@@ -64,6 +102,12 @@
 <body>
     <?php include __DIR__ . '/partials/navbar.php'; ?>
     <div class="content-wrapper">
+        <div class="nav">
+            <ul>
+                <li><a href="/courses" class="<?= strpos($_SERVER['REQUEST_URI'], '/courses') === 0 ? 'active' : '' ?>">Available Courses</a></li>
+                <li><a href="/MyCourses" class="<?= strpos($_SERVER['REQUEST_URI'], '/MyCourses') === 0 ? 'active' : '' ?>">My Courses</a></li>
+            </ul>
+        </div>
         <?php if (!empty($Mycourse)): ?>
             <h1><?= htmlspecialchars($_SESSION['user']['name']) ?>'s Courses</h1>
             <div class="card-container">

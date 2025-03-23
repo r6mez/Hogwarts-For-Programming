@@ -34,5 +34,5 @@ return [
     '/leaderBoard/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
     '/leaderBoard/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
     
-
+ 
 ];

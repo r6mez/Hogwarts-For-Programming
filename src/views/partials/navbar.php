@@ -4,8 +4,7 @@
         <div>
             <a href="/" class="<?= ($_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>">Home</a>
             <?php if (!isset($_SESSION['user']) || $_SESSION['user']['type'] !== 'Professor'): ?>
-                <a href="/courses" class="<?= strpos($_SERVER['REQUEST_URI'], '/course') === 0 ? 'active' : '' ?>">Course</a>
-                <a href="/MyCourses" class="<?= strpos($_SERVER['REQUEST_URI'], '/MyCourses') === 0 ? 'active' : '' ?>">My Courses</a>
+                <a href="/courses" class="<?= strpos($_SERVER['REQUEST_URI'], '/course') === 0 ? 'active' : '' ?>">Courses</a>
                 <a href="/DiagonAlley" class="<?= strpos($_SERVER['REQUEST_URI'], '/DiagonAlley') === 0 ? 'active' : '' ?>">Diagon Alley</a>
                 <?php endif; ?>
                 <a href="/OwlPost" class="<?= strpos($_SERVER['REQUEST_URI'], '/OwlPost') === 0 ? 'active' : '' ?>">Owl Post</a>
