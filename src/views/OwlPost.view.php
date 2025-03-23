@@ -106,12 +106,12 @@
 <body>
     <div class="content-wrapper">
         <?php include __DIR__ . '/partials/navbar.php'; ?>
-        <div class ="card-content">
+        <div class="card-content">
             <h1 style="display: flex; align-items: center;">
-                    <?= htmlspecialchars($_SESSION['user']['name']) . "'s Messages" ?>
+                <?= htmlspecialchars($_SESSION['user']['name']) . "'s Messages" ?>
             </h1>
             <button type="submit" onclick="location.href='/message/send'">
-                    Send Message
+                Send Message
             </button>
         </div>
         

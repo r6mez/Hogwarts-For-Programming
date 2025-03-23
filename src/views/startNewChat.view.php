@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Send Message</title>
+    <title>Start New Chat</title>
     <link rel="stylesheet" href="/styles/defaults.css">
     <style>
         body {
@@ -14,7 +13,7 @@
         }
 
         form {
-            background-color: var(--secondary-background-color);
+            background-color: var(--secondary-background-color); 
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -47,6 +46,8 @@
             font-size: 14px;
             background-color: var(--input-background-color);
             color: var(--text-color);
+            resize: vertical;
+            min-height: 100px;
         }
 
         button {
@@ -65,30 +66,29 @@
 
         .errors {
             color: rgb(201, 58, 58);
-            margin: 0;
+            margin: 0px 0px 10px 0px;
             padding: 0;
-            padding-bottom: 20px;
         }
     </style>
 </head>
-
 <body>
     <?php include __DIR__ . '/partials/navbar.php'; ?>
-    <form action="/chat/send" method="POST">
-        <h1>Send Message</h1>
+    <form action="/chat/create" method="POST">
+        <h1>Start New Chat</h1>
+
         <label for="email">User Email</label>
-        <input type="email" id="email" name="email" value="" required>
+        <input type="email" id="email" name="email" placeholder="Enter the user's email" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Type your message..." required></textarea>
+        
+        <?php if (!empty($errors)): ?>
+                <?php foreach ($errors as $error): ?>
+                    <p class="errors"><?= htmlspecialchars($error) ?></p>
+                <?php endforeach; ?>
+        <?php endif; ?>
 
-        <label for="content">Content</label>
-        <textarea name="content" id="content" placeholder="write your message here" required></textarea>
-
-        <?php
-        $errors = $_SESSION['errors'] ?? [];
-        // unset($_SESSION['errors']);
-        ?>
-
-        <button type="submit">Send</button>
+        <button type="submit">Start Chat</button>
     </form>
 </body>
-
 </html>
