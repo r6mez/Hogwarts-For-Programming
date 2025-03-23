@@ -13,7 +13,7 @@ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 create table Houses(
 id int primary key AUTO_INCREMENT,
-name varchar(255)  UNIQUE,
+name varchar(255)  UNIQUE
 );
 
 create table students (
@@ -80,6 +80,7 @@ id  int auto_increment primary key,
 sender_id int ,
 resiever_id int ,
 connent varchar(255) ,
+isread bool,
 sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 constraint fk_mess_sender foreign key message(sender_id) references users(id),
 constraint fk_mess_reciev foreign key message(resiever_id) references users(id) 
