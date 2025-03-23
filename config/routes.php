@@ -30,9 +30,9 @@ return [
     '/message/send/submit' => [\App\Controllers\MessageController::class, 'SendMessageSubmit'],
     '/message/delete' => [\App\Controllers\MessageController::class, 'deleteMessage'],
 
-    '/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
-    '/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
-    '/leaderBoard' => 'leaderBoard',
+    '/leaderBoard' => '/leaderBoard/students',
+    '/leaderBoard/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
+    '/leaderBoard/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
     
 
 ];

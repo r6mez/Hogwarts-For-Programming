@@ -2,7 +2,7 @@
 
 :root {
     --background-color: #1E201E;
-    --secondary-background-color: #3C3D37;
+    --secondary-background-color: rgba(60, 61, 55, 0.8);
     --text-color: #EEF0E5;
     --input-background-color: rgb(71, 75, 69);
     --button-color: #609966;
@@ -15,7 +15,9 @@
 }
 
 body {
-    background-color: var(--background-color);
+    position: relative;
+    background: url('/assets/background.png') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-color);
     margin: 0;
     padding: 0;
@@ -24,6 +26,17 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh; 
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 14, 7, 0.9); /* Black transparent overlay */
+    z-index: -1;
 }
 
 h2, h3, h4, h5, h6 {

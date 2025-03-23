@@ -25,11 +25,11 @@
         }
 
         .house-logo {
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             margin-right: 15px;
             border-radius: 50%;
-            padding: 20px;
+            padding: 5px;
         }
 
         .user-details {
