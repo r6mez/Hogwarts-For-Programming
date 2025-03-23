@@ -40,48 +40,66 @@
         button {
             margin-top: 10px;
             padding: 5px 15px 5px 15px;
-            background-color: var(--button-color);
+            background: linear-gradient(45deg, var(--button-color), var(--button-hover-color));
             color: var(--text-color);
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         button:hover {
-            background-color: var(--button-hover-color);
+            background: linear-gradient(45deg, var(--button-hover-color), var(--button-color));
         }
 
         .card-container {
-            position: relative;
-            color: var(--secondary-background-color);
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            gap: 10px;
-            width: 100%;
-            height: 100%;
+            gap: 20px;
+            justify-content: flex-start; /* Align cards to the left */
         }
 
         .card {
-            flex: 1 1 calc(33.33% - 10px);
-            width: 30%;
-            padding: 16px;
+            flex: 1 1 calc(250px - 20px); /* Ensure cards take up equal space */
+            max-width: 300px;
             background-color: var(--secondary-background-color);
             color: var(--text-color);
             border-radius: 10px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .card .logo {
-            width: 100px;
-            height: 100px;
-            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
         }
 
         .card-content {
+            display: flex;
             flex-direction: column;
+            align-items: center;
+        }
+
+        .card-content h3 {
+            margin: 0px 0;
+        }
+
+        .card-content p {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .card-content button {
+            margin: 15px;
         }
 
         .errors {
@@ -113,24 +131,22 @@
             <div class="card-container">
                 <?php foreach ($items as $item): ?>
                     <div class="card">
+                        <img src="<?= htmlspecialchars("/assets/" . $item['imag']) ?>" class="logo" alt="<?= htmlspecialchars($item['type']) ?>">
                         <div class="card-content">
                             <h3><?= htmlspecialchars($item['type']) ?></h3>
-                            <p style="display: flex; align-items: center; margin: 0; "><?= 'Price:' ?> <img src="/assets/point.png" alt="Points Icon" style="width: 25px; height: 25px; "> <?= htmlspecialchars($item['price']) ?></p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="/assets/point.png" alt="Points Icon" style="width: 30px; height: 30px;"> 
+                                <?= htmlspecialchars($item['price']) ?>
+                            </p>
                             <form action="/buyItem" method="post">
                                 <input type="hidden" name="item_id" value="<?= htmlspecialchars($item['id']) ?>">
                                 <input type="hidden" name="item_price" value="<?= htmlspecialchars($item['price']) ?>">
-                                <button type="submit" class="enroll-btn">
-                                    buy
-                                </button>
+                                <button type="submit" class="enroll-btn">buy</button>
                                 <?php if (!empty($errors[$item['id']])): ?>
-                                    <p class="errors">
-                                        <?= htmlspecialchars($errors[$item['id']]) ?>
-                                    </p>
+                                    <p class="errors"><?= htmlspecialchars($errors[$item['id']]) ?></p>
                                 <?php endif; ?>
                             </form>
                         </div>
-                        <?php $link = "/assets" . "/" . $item['imag']; ?>
-                        <img src="<?= htmlspecialchars($link) ?>" class="logo">
                     </div>
                 <?php endforeach; ?>
             </div>

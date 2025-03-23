@@ -37,12 +37,12 @@ INSERT INTO professors (id, experience) VALUES
 -- Insert Magical Items
 
 INSERT INTO MagicalItem (price, Type, stud_id, imag) VALUES
-(50, 'Invisibility Cloak', null, 'cloak.png'),
-(30, 'Crystal Ball', null, 'ball.png'),
-(60, 'Marauder’s Map', null, 'map.png'),
-(30, 'Potion', NULL, 'potion.png'),
-(75, 'Flying Broom', NULL, 'broom.png'),
-(75, 'Spell Book', NULL, 'book.png');
+(50, 'Invisibility Cloak', null, 'cloak.jpg'),
+(30, 'Crystal Ball', null, 'ball.jpg'),
+(60, 'Marauder’s Map', null, 'map.jpg'),
+(30, 'Potion', NULL, 'potion.jpg'),
+(75, 'Flying Broom', NULL, 'broom.jpg'),
+(75, 'Spell Book', NULL, 'book.jpg');
 
 -- Insert Wands
 INSERT INTO wand (woodtype, coretrpe, stud_id) VALUES

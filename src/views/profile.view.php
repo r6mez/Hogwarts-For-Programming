@@ -65,40 +65,58 @@
         }
 
         .card-container {
-            position: relative;
-            color: var(--secondary-background-color);
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 20px;
+            justify-content: flex-start; /* Align cards to the left */
             width: 100%;
-            height: 100%;
         }
 
         .card {
-            flex: 1 1 calc(33.33% - 10px);
-            width: 30%;
-            padding: 16px;
+            flex: 1 1 calc(250px - 20px); /* Ensure cards take up equal space */
+            max-width: 300px;
             background-color: var(--secondary-background-color);
             color: var(--text-color);
             border-radius: 10px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .card .logo {
-            width: 100px;
-            height: 100px;
-            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
         }
 
         .card-content {
+            display: flex;
             flex-direction: column;
+            align-items: center;
+        }
+
+        .card-content h3 {
+            margin: 0px 0;
+        }
+
+        .card-content p {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .card-content button {
+            margin: 15px;
         }
 
         .sell-btn {
-            background-color: #d9534f;
+            background: linear-gradient(45deg, #d9534f, #c9302c);
             margin-top: 10px;
             padding: 5px 15px 5px 15px;
             color: var(--text-color);
@@ -108,7 +126,7 @@
         }
 
         .sell-btn:hover {
-            background-color: #c9302c;
+            background: linear-gradient(45deg, #c9302c, #a72820);
         }
     </style>
 </head>
@@ -166,6 +184,8 @@
             <div class="card-container">
                 <?php foreach ($magicalItems as $item): ?>
                     <div class="card">
+                        <?php $link = "/assets/" . $item['imag']; ?>
+                        <img src="<?= htmlspecialchars($link) ?>" class="logo">
                         <div class="card-content">
                             <h3><?= htmlspecialchars($item['type']) ?></h3>
                             <p style="display: flex; align-items: center; margin: 0;">
@@ -179,8 +199,6 @@
                                 <button type="submit" class="sell-btn">Sell</button>
                             </form>
                         </div>
-                        <?php $link = "/assets/" . $item['imag']; ?>
-                        <img src="<?= htmlspecialchars($link) ?>" class="logo">
                     </div>
                 <?php endforeach; ?>
             </div>
