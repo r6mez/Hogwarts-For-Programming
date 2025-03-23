@@ -27,15 +27,13 @@ return [
     '/OwlPost' => [\App\Controllers\MessageController::class, 'showChats'],
     '/chat/messages' => [\App\Controllers\MessageController::class, 'showChatMessages'],
     '/chat/send' => [\App\Controllers\MessageController::class, 'sendMessageToChat'],
-    '/chat/new' => function () { 
-        $errors = $_SESSION['errors'] ?? [];
-        unset($_SESSION['errors']);
-        return Application::view('startNewChat', ['errors' => $errors]);
-    },
+    '/chat/new' => function () { $errors = $_SESSION['errors'] ?? []; unset($_SESSION['errors']); return Application::view('startNewChat', ['errors' => $errors]); },
     '/chat/create' => [\App\Controllers\MessageController::class, 'createChat'],
 
     '/leaderBoard' => '/leaderBoard/students',
     '/leaderBoard/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
     '/leaderBoard/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
+
+    '*' => function () { http_response_code(404); return Application::view('404'); }, // Ensure 404 status code is set
 ];
 
