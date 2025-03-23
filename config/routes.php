@@ -24,11 +24,6 @@ return [
     '/buyItem' => [\App\Controllers\MagicalItemController::class, 'buyItem'],
     '/sellItem' => [\App\Controllers\MagicalItemController::class, 'sellItem'],
     
-    '/message' => [\App\Controllers\MessageController::class, 'showMessage'],
-    '/message/send' => [\App\Controllers\MessageController::class, 'SendMessage'],
-    '/message/send/submit' => [\App\Controllers\MessageController::class, 'SendMessageSubmit'],
-    '/message/delete' => [\App\Controllers\MessageController::class, 'deleteMessage'],
-    
     '/OwlPost' => [\App\Controllers\MessageController::class, 'showChats'],
     '/chat/messages' => [\App\Controllers\MessageController::class, 'showChatMessages'],
     '/chat/send' => [\App\Controllers\MessageController::class, 'sendMessageToChat'],
