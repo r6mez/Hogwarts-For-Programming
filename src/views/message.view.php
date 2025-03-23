@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Profile</title>
+    <title>Message</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
         .profile-container {
