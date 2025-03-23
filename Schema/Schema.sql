@@ -6,15 +6,14 @@ id int primary key AUTO_INCREMENT,
 name varchar(255) ,
 email varchar(255)  ,
 password varchar(255) ,
-
 type ENUM('Student', 'Professor') ,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 create table Houses(
 id int primary key AUTO_INCREMENT,
 name varchar(255)  UNIQUE,
-points int
 );
 
 create table students (

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Profile</title>
+    <title>DiagonAlley</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
         input {
