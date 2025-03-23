@@ -14,7 +14,6 @@ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 create table Houses(
 id int primary key AUTO_INCREMENT,
 name varchar(255)  UNIQUE,
-points int
 );
 
 create table students (

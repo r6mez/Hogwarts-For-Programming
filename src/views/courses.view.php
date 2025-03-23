@@ -63,6 +63,7 @@
 <body>
     <div class="content-wrapper">        
         <?php include __DIR__ . '/partials/navbar.php'; ?>
+        
 
         <?php if (!empty($course)): ?>
                 <h1>Available Courses</h1>

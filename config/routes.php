@@ -19,8 +19,20 @@ return [
     '/deRegister' => [\App\Controllers\EnrollController::class, 'deRegisterCourse'],
     '/MyCourses' => [\App\Controllers\CourseController::class, 'showCoursesByStudentId'],
     '/courseSearch' => [\App\Controllers\CourseController::class, 'searchByName'],
+    
     '/DiagonAlley' => [\App\Controllers\MagicalItemController::class, 'showMagicalItems'],
     '/buyItem' => [\App\Controllers\MagicalItemController::class, 'buyItem'],
     '/sellItem' => [\App\Controllers\MagicalItemController::class, 'sellItem'],
+    
+    '/OwlPost' => [\App\Controllers\MessageController::class, 'showReceivedMessage'],
+    '/message' => [\App\Controllers\MessageController::class, 'showMessage'],
+    '/message/send' => [\App\Controllers\MessageController::class, 'SendMessage'],
+    '/message/send/submit' => [\App\Controllers\MessageController::class, 'SendMessageSubmit'],
+    '/message/delete' => [\App\Controllers\MessageController::class, 'deleteMessage'],
+
+    '/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
+    '/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
+    '/leaderBoard' => 'leaderBoard',
+    
 
 ];
