@@ -20,6 +20,7 @@ create table students (
 id int primary key,
 points int ,
 house_id int  ,
+wand
 constraint fk_house_stud foreign key students(house_id) references Houses(id),
 constraint fk_stud_user foreign key students(id)  references users(id) ON DELETE CASCADE
 );
@@ -43,7 +44,7 @@ constraint fk_student_item foreign key MagicalItem(stud_id) references students(
 create table wand (
 id int primary key auto_increment ,
 woodtype varchar(255) ,
-coretrpe varchar(255) ,
+coretype varchar(255) ,
 stud_id int ,
 constraint fk_wand_wood foreign key wand(id) references students(id)
 );

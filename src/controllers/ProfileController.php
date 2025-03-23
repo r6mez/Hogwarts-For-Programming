@@ -18,7 +18,12 @@ class ProfileController
             $student = $studentController->getStudentByID($user['id']);
             $user['points'] = $student['points'];
             $user['house'] = $student['house'];
-            
+
+            $pdo = \App\Core\Database::getInstance();
+            $stmt = $pdo->prepare("SELECT woodtype, coretype FROM wand WHERE stud_id = :id");
+            $stmt->execute([':id' => $user['id']]);
+            $wand = $stmt->fetch();
+            if($wand) $user['wand'] = $wand;
         } else if ($user['type'] == 'Professor') {
             $professorController = new ProfessorController();
             $professor = $professorController->getProfessorByID($user['id']);

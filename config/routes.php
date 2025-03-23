@@ -34,6 +34,6 @@ return [
     '/leaderBoard/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
     '/leaderBoard/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
 
-    '*' => function () { http_response_code(404); return Application::view('404'); }, // Ensure 404 status code is set
+    '*' => function () { http_response_code(404); return Application::view('404'); },
 ];
 

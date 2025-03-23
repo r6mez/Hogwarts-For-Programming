@@ -37,6 +37,20 @@ class RegisterController
             ':house_id' => $randomHouseId,
         ]);
 
+        // Assign a random wand to the user
+        $wandWoodTypes = ['Holly', 'Yew', 'Elder', 'Willow', 'Hawthorn', 'Oak'];
+        $wandCores = ['Phoenix Feather', 'Dragon Heartstring', 'Unicorn Hair', 'Thestral Tail Hair'];
+
+        $randomWood = $wandWoodTypes[array_rand($wandWoodTypes)];
+        $randomCore = $wandCores[array_rand($wandCores)];
+
+        $stmt = $pdo->prepare("INSERT INTO wand (stud_id, woodtype, coretype) VALUES (:user_id, :wood, :core)");
+        $stmt->execute([
+            ':user_id' => $userId,
+            ':wood' => $randomWood,
+            ':core' => $randomCore,
+        ]);
+
         header('Location: /');
         exit;
     }

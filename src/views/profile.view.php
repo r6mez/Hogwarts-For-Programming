@@ -10,8 +10,9 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px;
-            font-family: Arial, sans-serif;
             margin: 0;
+            border-radius: 20px;
+            width: 100%;
         }
 
         .profile-info {
@@ -164,6 +165,9 @@
                     <p class="email"><?= $user['email'] ?></p>
                     <?php if ($houseDetails): ?>
                         <p class="details"><?= $houseDetails ?></p>
+                    <?php endif; ?>
+                    <?php if ($user['type'] === 'Student' && isset($user['wand'])): ?>
+                        <p class="details">Wand: <?= htmlspecialchars($user['wand']['woodtype']) ?> wood with <?= htmlspecialchars($user['wand']['coretype']) ?> core</p>
                     <?php endif; ?>
                 </div>
             </div>
