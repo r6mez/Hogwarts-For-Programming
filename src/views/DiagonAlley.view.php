@@ -118,11 +118,11 @@
                 <img src="/assets/Diagon.png" alt="Diagon Alley" style="width: 50px; height: 50px; margin-right: 10px;">
                 Diagon Alley
             </h1>
-            <h1 style="display: flex; align-items: center;">
+            <h2 style="display: flex; align-items: center; margin-bottom: 20px;">
                 Your Points : 
                 <img src="/assets/point.png" alt="Points Icon" style="width: 40px; height: 40px; margin-left: 10px;"> 
                 <?= htmlspecialchars($_SESSION['student']['points']) ?> 
-            </h1>
+            </h2>
             <?php
             $errors = $_SESSION['errors'] ?? [];
             unset($_SESSION['errors']);

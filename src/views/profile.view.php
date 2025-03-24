@@ -33,6 +33,10 @@
             padding: 5px;
         }
 
+        .house-logo:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+
         .user-details {
             display: flex;
             flex-direction: column;
@@ -159,7 +163,7 @@
         ?>
         <div class="profile-container content-wrapper">
             <div class="profile-info">
-                <img src="/assets/<?= $houseLogo ?>" class="house-logo" style="background-color: <?= htmlspecialchars($houseColor) ?>;">
+                <img src="/assets/<?= $houseLogo ?>" class="house-logo" style="background-color: <?= htmlspecialchars($houseColor) ?>80;">
                 <div class="user-details">
                     <h2 class="name"><?= $user['name'] ?></h2>
                     <p class="email"><?= $user['email'] ?></p>
