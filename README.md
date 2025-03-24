@@ -9,32 +9,32 @@ This project was completed in collaboration with [Rahf](https://github.com/Rahf-
 Below are some demo images of the project:
 
 - **Login Page**  
-  ![Login Page](./References/Images/login.png)
+  ![Login Page](./Images/login.png)
 
 - **Home Page**  
-  ![Home Page](./References/Images/home.png)
+  ![Home Page](./Images/home.png)
 
 - **Diagon Alley Page**  
-  ![Diagon Alley](./References/Images/diagonAlley.png)
+  ![Diagon Alley](./Images/diagonAlley.png)
 
 - **Course Enroll Page**  
-  ![Course Enroll Page](./References/Images/enroll.png)
+  ![Course Enroll Page](./Images/enroll.png)
 
 - **Quizzes Page**  
-  ![Quizzes Page](./References/Images/Quizes.png)
+  ![Quizzes Page](./Images/Quizes.png)
 
 - **Solve Quiz Page**  
-  ![Solve Quiz Page](./References/Images/solveQuiz.png)
+  ![Solve Quiz Page](./Images/solveQuiz.png)
 
 - **Leaderboard Page**  
-  ![Leaderboard](./References/Images/leaderboard.png)
+  ![Leaderboard](./Images/leaderboard.png)
 
 - **Profile Page**  
-  ![Profile Page](./References/Images/profile.png)
+  ![Profile Page](./Images/profile.png)
 
 
 - **Dashboard**  
-  ![Dashboard](./References/Images/Dashboard.png)
+  ![Dashboard](./Images/Dashboard.png)
 
   
 ## Contribution
@@ -78,3 +78,6 @@ Follow these steps to set up the project on your local machine:
 - `vendor/`: Composer dependencies (generated after running `composer install`).
 - `.gitignore`: Specifies files and directories to exclude from version control.
 - `README.md`: Documentation for setting up and understanding the project.
+
+## ERD
+  ![ERD](./Schema/Hogwarts_ERD.png)
