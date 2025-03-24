@@ -54,26 +54,26 @@ Below are some demo images of the project:
   ![Login Page](./References/Images/login.png)
 
 - **Home Page**  
-  ![Login Page](./References/Images/home.png)
+  ![Home Page](./References/Images/home.png)
 
 - **Diagon Alley Page**  
-  ![Dashboard](./References/Images/diagonAlley.png)
+  ![Diagon Alley](./References/Images/diagonAlley.png)
 
 - **Course Enroll Page**  
-  ![Profile Page](./References/Images/enroll.png)
+  ![Course Enroll Page](./References/Images/enroll.png)
 
 - **Quizzes Page**  
-  ![Profile Page](./References/Images/quizes.png)
+  ![Quizzes Page](./References/Images/Quizes.png)
 
 - **Solve Quiz Page**  
-  ![Profile Page](./References/Images/solveQuiz.png)
+  ![Solve Quiz Page](./References/Images/solveQuiz.png)
 
 - **Leaderboard Page**  
-  ![Profile Page](./References/Images/leaderboard.png)
+  ![Leaderboard](./References/Images/leaderboard.png)
 
 - **Profile Page**  
   ![Profile Page](./References/Images/profile.png)
 
 
 - **Dashboard**  
-  ![Dashboard](./References/Images/dashboard.png)
+  ![Dashboard](./References/Images/Dashboard.png)
