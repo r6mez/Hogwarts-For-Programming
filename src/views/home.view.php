@@ -168,7 +168,7 @@
         if (isset($user) && $user['type'] === 'Professor') {
             $points = 'Endless Points';
         } else {
-            $points = $_SESSION['student']['points'] . ' Points';
+            $points = $user['points'] . ' Points';
         }
         ?>
         <h1>Welcome, <?= htmlspecialchars($user['name'] ?? 'Guest') ?> !</h1>
