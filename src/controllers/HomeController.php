@@ -50,6 +50,9 @@ class HomeController {
         $houses = $this->fetchHousesRank();
         $quizzes = $this->getQuizzesForEnrolledCourses();
         $user = $_SESSION['user']; // Add this line to retrieve the user data
+        $studentController = new StudentController();
+        $student = $studentController->getStudentByID($user['id']);
+        $user['points'] = $student['points']; // override the points value
         return Application::view('home', ['houses' => $houses, 'quizzes' => $quizzes, 'user' => $user]);
     }
 }
