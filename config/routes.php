@@ -3,7 +3,7 @@
 use App\Core\Application;
 
 return [
-    '/' => 'home', 
+    '/' => [\App\Controllers\HomeController::class, 'home'], 
     '/profile' => [\App\Controllers\ProfileController::class, 'showProfile'],
     '/profile/edit' => [\App\Controllers\ProfileController::class, 'editProfile'],
     '/profile/edit/submit' => [\App\Controllers\ProfileController::class, 'updateProfile'],
