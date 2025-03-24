@@ -94,7 +94,6 @@
         }
 
         .card-content p {
-            font-size: 20px;
             margin: 0;
         }
 
@@ -104,8 +103,8 @@
 
         .errors {
             color: rgb(201, 58, 58);
-            margin: 10px 0px 0px 0px;
-            padding: 0;
+            padding: 10px;
+            font-size: 14px; 
         }
     </style>
 </head>

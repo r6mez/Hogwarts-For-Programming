@@ -167,7 +167,7 @@
                         <p class="details"><?= $houseDetails ?></p>
                     <?php endif; ?>
                     <?php if ($user['type'] === 'Student' && isset($user['wand'])): ?>
-                        <p class="details">Wand: <?= htmlspecialchars($user['wand']['woodtype']) ?> wood with <?= htmlspecialchars($user['wand']['coretype']) ?> core</p>
+                        <p class="details"><strong>Wand:</strong> <?= htmlspecialchars($user['wand']['woodtype']) ?> wood with <?= htmlspecialchars($user['wand']['coretype']) ?> core</p>
                     <?php endif; ?>
                 </div>
             </div>
