@@ -51,29 +51,29 @@ Follow these steps to set up the project on your local machine:
 Below are some demo images of the project:
 
 - **Login Page**  
-  ![Login Page](./References/images/login.png)
+  ![Login Page](./References/Images/login.png)
 
 - **Home Page**  
-  ![Login Page](./References/images/home.png)
+  ![Login Page](./References/Images/home.png)
 
 - **Diagon Alley Page**  
-  ![Dashboard](./References/images/diagonAlley.png)
+  ![Dashboard](./References/Images/diagonAlley.png)
 
 - **Course Enroll Page**  
-  ![Profile Page](./References/images/enroll.png)
+  ![Profile Page](./References/Images/enroll.png)
 
 - **Quizzes Page**  
-  ![Profile Page](./References/images/quizes.png)
+  ![Profile Page](./References/Images/quizes.png)
 
 - **Solve Quiz Page**  
-  ![Profile Page](./References/images/solveQuiz.png)
+  ![Profile Page](./References/Images/solveQuiz.png)
 
 - **Leaderboard Page**  
-  ![Profile Page](./References/images/leaderboard.png)
+  ![Profile Page](./References/Images/leaderboard.png)
 
 - **Profile Page**  
-  ![Profile Page](./References/images/profile.png)
+  ![Profile Page](./References/Images/profile.png)
 
 
 - **Dashboard**  
-  ![Dashboard](./References/images/dashboard.png)
+  ![Dashboard](./References/Images/dashboard.png)
