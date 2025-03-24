@@ -18,11 +18,11 @@ name varchar(255)  UNIQUE
 
 create table students (
 id int primary key,
-points int ,
-house_id int  ,
-wand
-constraint fk_house_stud foreign key students(house_id) references Houses(id),
-constraint fk_stud_user foreign key students(id)  references users(id) ON DELETE CASCADE
+points int,
+house_id int,
+wand varchar(255), 
+constraint fk_house_stud foreign key (house_id) references Houses(id), -- Fixed syntax
+constraint fk_stud_user foreign key (id) references users(id) ON DELETE CASCADE -- Fixed syntax
 );
 
 create table professors (

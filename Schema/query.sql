@@ -45,7 +45,7 @@ INSERT INTO MagicalItem (price, Type, stud_id, imag) VALUES
 (75, 'Spell Book', NULL, 'book.jpg');
 
 -- Insert Wands
-INSERT INTO wand (woodtype, coretrpe, stud_id) VALUES
+INSERT INTO wand (woodtype, coretype, stud_id) VALUES
 ('Holly', 'Phoenix Feather', 1),
 ('Vine', 'Dragon Heartstring', 2),
 ('Willow', 'Unicorn Hair', 3),

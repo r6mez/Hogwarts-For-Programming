@@ -1,6 +1,6 @@
 # Hogwarts for Programming
 
-## Getting Started
+## Contribution
 
 Follow these steps to set up the project on your local machine:
 
@@ -23,13 +23,7 @@ Follow these steps to set up the project on your local machine:
    composer install
    ```
 
-3. Set up the database:
-   - Create a new database named `hogwarts`.
-   - Update the database credentials in `config/config.php` if necessary.
-   - Import the schema:
-     ```bash
-     mysql -u <username> -p hogwarts < Schema/Schema.sql
-     ```
+3. Set up the database: run queries in `schema/schema.sql` and to populate database run `schema/query.sql`, and to view database settings head to `config/config.php`.
 
 4. Start the development server:
    ```bash
