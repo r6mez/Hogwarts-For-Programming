@@ -21,7 +21,7 @@ id int primary key,
 points int,
 house_id int,
 wand varchar(255), 
-constraint fk_house_stud foreign key (house_id) references Houses(id), -- Fixed syntax
+constraint fk_house_stud foreign key (house_id) references Houses(id) ON DELETE CASCADE , -- Fixed syntax
 constraint fk_stud_user foreign key (id) references users(id) ON DELETE CASCADE -- Fixed syntax
 );
 
@@ -38,7 +38,7 @@ price decimal ,
 Type varchar(255),
 stud_id int,
 imag varchar(255),
-constraint fk_student_item foreign key MagicalItem(stud_id) references students(id)
+constraint fk_student_item foreign key MagicalItem(stud_id) references students(id) ON DELETE CASCADE 
 ); 
 
 create table wand (
@@ -46,22 +46,22 @@ id int primary key auto_increment ,
 woodtype varchar(255) ,
 coretype varchar(255) ,
 stud_id int ,
-constraint fk_wand_wood foreign key wand(id) references students(id)
+constraint fk_wand_wood foreign key wand(id) references students(id) ON DELETE CASCADE 
 );
 
 create table course (
 id int primary key auto_increment,
 name varchar(255) ,
 id_prof int,
-constraint fk_prof_cour foreign key course(id_prof) references professors(id)
+constraint fk_prof_cour foreign key course(id_prof) references professors(id) ON DELETE CASCADE 
 );
 
 create table enroll (
 id int auto_increment primary key ,
 id_stud int  ,
 id_cour int  ,
-constraint fk_enroll_stud  foreign key  enroll(id_stud) references students(id),
-constraint fk_enroll_cou   foreign key  enroll(id_cour) references course(id)
+constraint fk_enroll_stud  foreign key  enroll(id_stud) references students(id) ON DELETE CASCADE ,
+constraint fk_enroll_cou   foreign key  enroll(id_cour) references course(id)ON DELETE CASCADE 
 );
 
 
@@ -69,7 +69,7 @@ create table quiz (
 id int auto_increment primary key ,
 id_cour int ,
 score int , 
-constraint fk_quiz_cour foreign key  quiz(id_cour) references course(id)
+constraint fk_quiz_cour foreign key  quiz(id_cour) references course(id) ON DELETE CASCADE 
 );
 
 create table question (
@@ -77,7 +77,7 @@ id int auto_increment primary key ,
 answer bool ,
 body varchar(255),
 quiz_id int ,
-constraint fk_ques_quiz foreign key question(quiz_id) references quiz(id) 
+constraint fk_ques_quiz foreign key question(quiz_id) references quiz(id) ON DELETE CASCADE  
 );
 
 
@@ -86,8 +86,8 @@ id int auto_increment primary key ,
 student_id int ,
 question_id int ,
 answer bool ,
-constraint fk_studAns_stud foreign key studentAnswer(student_id) references students(id),
-constraint fk_studAns_ques foreign key studentAnswer(question_id) references question(id)
+constraint fk_studAns_stud foreign key studentAnswer(student_id) references students(id) ON DELETE CASCADE ,
+constraint fk_studAns_ques foreign key studentAnswer(question_id) references question(id) ON DELETE CASCADE 
 );
 
 
@@ -98,8 +98,8 @@ resiever_id int,
 connent varchar(255),
 isread bool,
 sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-constraint fk_mess_sender foreign key (sender_id) references users(id),
-constraint fk_mess_reciev foreign key (resiever_id) references users(id)
+constraint fk_mess_sender foreign key (sender_id) references users(id)ON DELETE CASCADE ,
+constraint fk_mess_reciev foreign key (resiever_id) references users(id) ON DELETE CASCADE 
 );
 
 DELIMITER $$
