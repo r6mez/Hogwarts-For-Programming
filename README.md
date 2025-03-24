@@ -4,6 +4,39 @@ A web-based platform inspired by the magical world of Hogwarts, designed to teac
 
 This project was completed in collaboration with [Rahf](https://github.com/Rahf-Ayman) and [Badr](https://github.com/TrueBadr) as part of the IEEE ZSB Backend track.
 
+## Demo Images
+
+Below are some demo images of the project:
+
+- **Login Page**  
+  ![Login Page](./References/Images/login.png)
+
+- **Home Page**  
+  ![Home Page](./References/Images/home.png)
+
+- **Diagon Alley Page**  
+  ![Diagon Alley](./References/Images/diagonAlley.png)
+
+- **Course Enroll Page**  
+  ![Course Enroll Page](./References/Images/enroll.png)
+
+- **Quizzes Page**  
+  ![Quizzes Page](./References/Images/Quizes.png)
+
+- **Solve Quiz Page**  
+  ![Solve Quiz Page](./References/Images/solveQuiz.png)
+
+- **Leaderboard Page**  
+  ![Leaderboard](./References/Images/leaderboard.png)
+
+- **Profile Page**  
+  ![Profile Page](./References/Images/profile.png)
+
+
+- **Dashboard**  
+  ![Dashboard](./References/Images/Dashboard.png)
+
+  
 ## Contribution
 
 Follow these steps to set up the project on your local machine:
@@ -45,35 +78,3 @@ Follow these steps to set up the project on your local machine:
 - `vendor/`: Composer dependencies (generated after running `composer install`).
 - `.gitignore`: Specifies files and directories to exclude from version control.
 - `README.md`: Documentation for setting up and understanding the project.
-
-## Demo Images
-
-Below are some demo images of the project:
-
-- **Login Page**  
-  ![Login Page](./References/Images/login.png)
-
-- **Home Page**  
-  ![Home Page](./References/Images/home.png)
-
-- **Diagon Alley Page**  
-  ![Diagon Alley](./References/Images/diagonAlley.png)
-
-- **Course Enroll Page**  
-  ![Course Enroll Page](./References/Images/enroll.png)
-
-- **Quizzes Page**  
-  ![Quizzes Page](./References/Images/Quizes.png)
-
-- **Solve Quiz Page**  
-  ![Solve Quiz Page](./References/Images/solveQuiz.png)
-
-- **Leaderboard Page**  
-  ![Leaderboard](./References/Images/leaderboard.png)
-
-- **Profile Page**  
-  ![Profile Page](./References/Images/profile.png)
-
-
-- **Dashboard**  
-  ![Dashboard](./References/Images/Dashboard.png)
