@@ -7,9 +7,14 @@
                 <a href="/courses" class="<?= strpos($_SERVER['REQUEST_URI'], '/course') === 0 ? 'active' : '' ?>">Courses</a>
                 <a href="/DiagonAlley" class="<?= strpos($_SERVER['REQUEST_URI'], '/DiagonAlley') === 0 ? 'active' : '' ?>">Diagon Alley</a>
                 <a href="/quizes" class="<?= strpos($_SERVER['REQUEST_URI'], '/quizes') === 0 ? 'active' : '' ?>">Quizes</a>
-                <?php endif; ?>
-                <a href="/OwlPost" class="<?= strpos($_SERVER['REQUEST_URI'], '/OwlPost') === 0 ? 'active' : '' ?>">Owl Post</a>
-                <a href="/leaderBoard/students" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/students') === 0 ? 'active' : '' ?>">Leaderboard</a>
+            <?php endif; ?>
+            <a href="/OwlPost" class="<?= strpos($_SERVER['REQUEST_URI'], '/OwlPost') === 0 ? 'active' : '' ?>">Owl Post</a>
+            <a href="/leaderBoard/students" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/students') === 0 ? 'active' : '' ?>">Leaderboard</a>
+            <?php if (isset($_SESSION['user']) && $_SESSION['user']['type'] === 'Professor'): ?>
+                <a href="/manageStudents" class="<?= strpos($_SERVER['REQUEST_URI'], '/manageStudents') === 0 ? 'active' : '' ?>">Manage Students</a>
+                <a href="/manageQuizzes" class="<?= strpos($_SERVER['REQUEST_URI'], '/manageQuizzes') === 0 ? 'active' : '' ?>">Manage Quizzes</a>
+                <a href="/manageCourses" class="<?= strpos($_SERVER['REQUEST_URI'], '/manageCourses') === 0 ? 'active' : '' ?>">Manage Courses</a>
+            <?php endif; ?>
         </div>
         <div>
             <?php if (isset($_SESSION['user'])): ?>

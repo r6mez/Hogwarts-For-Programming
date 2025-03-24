@@ -39,6 +39,25 @@ return [
     '/submitQuiz' => [\App\Controllers\QuizesController::class, 'submitQuiz'],
     '/quizResult' => [\App\Controllers\QuizesController::class, 'viewQuizResult'],
 
+    '/manageStudents' => [\App\Controllers\ProfessorController::class, 'manageStudents'],
+    '/manageStudents/create' => [\App\Controllers\ProfessorController::class, 'createStudent'],
+    '/manageStudents/edit' => [\App\Controllers\ProfessorController::class, 'editStudent'],
+    '/manageStudents/delete' => [\App\Controllers\ProfessorController::class, 'deleteStudent'],
+
+    '/manageQuizzes' => [\App\Controllers\ProfessorController::class, 'manageQuizzes'],
+    '/manageQuizzes/create' => [\App\Controllers\ProfessorController::class, 'createQuiz'],
+    '/manageQuizzes/edit' => [\App\Controllers\ProfessorController::class, 'editQuiz'],
+    '/manageQuizzes/delete' => [\App\Controllers\ProfessorController::class, 'deleteQuiz'],
+
+    '/manageQuestions/create' => [\App\Controllers\ProfessorController::class, 'createQuestion'],
+    '/manageQuestions/edit' => [\App\Controllers\ProfessorController::class, 'editQuestion'],
+    '/manageQuestions/delete' => [\App\Controllers\ProfessorController::class, 'deleteQuestion'],
+
+    '/manageCourses' => [\App\Controllers\ProfessorController::class, 'manageCourses'],
+    '/manageCourses/create' => [\App\Controllers\ProfessorController::class, 'createCourse'],
+    '/manageCourses/edit' => [\App\Controllers\ProfessorController::class, 'editCourse'],
+    '/manageCourses/delete' => [\App\Controllers\ProfessorController::class, 'deleteCourse'],
+
     '*' => function () { http_response_code(404); return Application::view('404'); },
 ];
 
