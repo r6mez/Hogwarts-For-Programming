@@ -20,6 +20,9 @@ class HomeController {
     }
 
     public function getQuizzesForEnrolledCourses() {
+        if($_SESSION['user']['type'] === 'Professor') {
+            return [];
+        }
         $studentId = $_SESSION['student']['id'];
         $db = Database::getInstance();
         $query = "
@@ -46,6 +49,7 @@ class HomeController {
     {
         $houses = $this->fetchHousesRank();
         $quizzes = $this->getQuizzesForEnrolledCourses();
-        return Application::view('home', ['houses' => $houses, 'quizzes' => $quizzes]);
+        $user = $_SESSION['user']; // Add this line to retrieve the user data
+        return Application::view('home', ['houses' => $houses, 'quizzes' => $quizzes, 'user' => $user]);
     }
 }

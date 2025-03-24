@@ -127,14 +127,17 @@
             padding: 0;
             margin: 0;
             width: 100%;
-            max-height: 270px; /* Set a maximum height */
-            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 270px;
+            /* Set a maximum height */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
         }
 
         .quizzes-card li {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Center children vertically */
+            align-items: center;
+            /* Center children vertically */
             background-color: var(--secondary-background-color);
             margin: 5px 0;
             padding: 10px;
@@ -144,7 +147,8 @@
 
         .quizzes-card li span {
             display: flex;
-            align-items: center; /* Ensure image and text are aligned vertically */
+            align-items: center;
+            /* Ensure image and text are aligned vertically */
             font-weight: bold;
         }
 
@@ -160,11 +164,18 @@
     <?php include __DIR__ . '/partials/navbar.php'; ?>
 
     <div class="content-wrapper">
-        <h1>Welcome, <?=htmlspecialchars($_SESSION['user']['name'])?> !</h1>
+        <?php
+        if (isset($user) && $user['type'] === 'Professor') {
+            $points = 'Endless Points';
+        } else {
+            $points = $_SESSION['student']['points'] . ' Points';
+        }
+        ?>
+        <h1>Welcome, <?= htmlspecialchars($user['name'] ?? 'Guest') ?> !</h1>
         <h2 style="display: flex; align-items: center; margin-bottom: 20px;">
             Your Points :
             <img src="/assets/point.png" alt="Points Icon" style="width: 40px; height: 40px; margin-left: 10px;">
-            <?= htmlspecialchars($_SESSION['student']['points']) ?>
+            <?= htmlspecialchars($points) ?>
         </h2>
         <div class="cards-container">
             <div class="card">
@@ -189,6 +200,7 @@
                     <?php endforeach; ?>
                 </div>
             </div>
+            <?php if (isset($user) && $user['type'] !== 'Professor'): ?>
             <div class="card quizzes-card">
                 <h2>Quizzes</h2>
                 <?php if (empty($quizzes)): ?>
@@ -208,6 +220,7 @@
                 <?php endif; ?>
                 <button onclick="location.href='/quizes'">Go to Quizzes</button>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </body>
