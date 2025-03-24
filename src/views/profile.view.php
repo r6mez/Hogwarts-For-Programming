@@ -185,6 +185,7 @@
                 </button>
             </div>
         </div>
+        <?php if ($user['type'] === 'Student'): ?>
         <br>
         <h2>Your Magical Items</h2>
         <br>
@@ -212,6 +213,7 @@
             </div>
         <?php else: ?>
             <p>You do not own any magical items.</p>
+        <?php endif; ?>
         <?php endif; ?>
     </div>
 </body>

@@ -119,7 +119,7 @@
         <div class="nav">
             <ul>
                 <li><a href="/leaderBoard/students" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/students') === 0 ? 'active' : '' ?>">Student Leaderboard</a>
-                <li><a href="/leaderBoard/houses" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/houses') === 0 ? 'active' : '' ?>">Houses Leaderboard</a>
+                <li><a href="/leaderBoard/houses" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/houses') === 0 ? 'active' : '' ?>">House Leaderboard</a>
             </ul>
         </div>
         <div class="leaderboard-container">
