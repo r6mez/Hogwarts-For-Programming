@@ -1,4 +1,8 @@
-# Hogwarts for Programming
+# Hogwarts for Programming 🪄🔮
+
+A web-based platform inspired by the magical world of Hogwarts, designed to teach programming through interactive courses, quizzes, and challenges. Users can enroll in courses, solve quizzes, and track their progress on leaderboards.
+
+This project was completed in collaboration with [Rahf](https://github.com/Rahf-Ayman) and [Badr](https://github.com/TrueBadr) as part of the IEEE ZSB Backend track.
 
 ## Contribution
 
@@ -41,3 +45,35 @@ Follow these steps to set up the project on your local machine:
 - `vendor/`: Composer dependencies (generated after running `composer install`).
 - `.gitignore`: Specifies files and directories to exclude from version control.
 - `README.md`: Documentation for setting up and understanding the project.
+
+## Demo Images
+
+Below are some demo images of the project:
+
+- **Login Page**  
+  ![Login Page](./References/images/login.png)
+
+- **Home Page**  
+  ![Login Page](./References/images/home.png)
+
+- **Diagon Alley Page**  
+  ![Dashboard](./References/images/diagonAlley.png)
+
+- **Course Enroll Page**  
+  ![Profile Page](./References/images/enroll.png)
+
+- **Quizzes Page**  
+  ![Profile Page](./References/images/quizes.png)
+
+- **Solve Quiz Page**  
+  ![Profile Page](./References/images/solveQuiz.png)
+
+- **Leaderboard Page**  
+  ![Profile Page](./References/images/leaderboard.png)
+
+- **Profile Page**  
+  ![Profile Page](./References/images/profile.png)
+
+
+- **Dashboard**  
+  ![Dashboard](./References/images/dashboard.png)
