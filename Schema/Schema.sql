@@ -68,13 +68,28 @@ constraint fk_enroll_cou   foreign key  enroll(id_cour) references course(id)
 create table quiz (
 id int auto_increment primary key ,
 id_cour int ,
-id_prof int ,
-id_stud int ,
-score int ,
-constraint fk_quiz_cour foreign key  quiz(id_cour) references course(id),
-constraint fk_quiz_prof foreign key  quiz(id_prof) references professors(id),
-constraint fk_quiz_stud foreign key  quiz(id_stud) references students(id)
+score int , 
+constraint fk_quiz_cour foreign key  quiz(id_cour) references course(id)
 );
+
+create table question (
+id int auto_increment primary key ,
+answer bool ,
+body varchar(255),
+quiz_id int ,
+constraint fk_ques_quiz foreign key question(quiz_id) references quiz(id) 
+);
+
+
+create table studentAnswer (
+id int auto_increment primary key ,
+student_id int ,
+question_id int ,
+answer bool ,
+constraint fk_studAns_stud foreign key studentAnswer(student_id) references students(id),
+constraint fk_studAns_ques foreign key studentAnswer(question_id) references question(id)
+);
+
 
 create table message (
 id  int auto_increment primary key,
@@ -85,14 +100,6 @@ isread bool,
 sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 constraint fk_mess_sender foreign key (sender_id) references users(id),
 constraint fk_mess_reciev foreign key (resiever_id) references users(id)
-);
-
-create table question (
-id int auto_increment primary key ,
-answer bool ,
-body varchar(255),
-quiz_id int ,
-constraint fk_ques_quiz foreign key question(quiz_id) references quiz(id) 
 );
 
 DELIMITER $$

@@ -8,7 +8,8 @@
                 <a href="/DiagonAlley" class="<?= strpos($_SERVER['REQUEST_URI'], '/DiagonAlley') === 0 ? 'active' : '' ?>">Diagon Alley</a>
                 <?php endif; ?>
                 <a href="/OwlPost" class="<?= strpos($_SERVER['REQUEST_URI'], '/OwlPost') === 0 ? 'active' : '' ?>">Owl Post</a>
-                <a href="/leaderBoard/students" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/students') === 0 || strpos($_SERVER['REQUEST_URI'], '/students') === 0 || strpos($_SERVER['REQUEST_URI'], '/houses') === 0 ? 'active' : '' ?>">Leaderboard</a>
+                <a href="/leaderBoard/students" class="<?= strpos($_SERVER['REQUEST_URI'], '/leaderBoard/students') === 0 ? 'active' : '' ?>">Leaderboard</a>
+                <a href="/quizes" class="<?= strpos($_SERVER['REQUEST_URI'], '/quizes') === 0 ? 'active' : '' ?>">Quizes</a>
         </div>
         <div>
             <?php if (isset($_SESSION['user'])): ?>

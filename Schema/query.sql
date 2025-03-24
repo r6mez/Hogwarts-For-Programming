@@ -70,13 +70,69 @@ INSERT INTO enroll (id_stud, id_cour) VALUES
 (1, 1), (2, 1), (3, 2), (4, 2), (5, 3);
 
 -- Insert Quizzes
-INSERT INTO quiz (id_cour, id_prof, id_stud, score) VALUES
-(1, 10, 1, 90), (2, 8, 2, 85), (3, 9, 3, 88);
+INSERT INTO quiz (id_cour, score) VALUES
+(1, 85), (1, 90), (1, 95), -- Quizzes for "Defense Against the Dark Arts"
+(2, 80), (2, 85),          -- Quizzes for "Potions"
+(3, 88), (3, 92),          -- Quizzes for "Transfiguration"
+(4, 75), (4, 80), (4, 85), -- Quizzes for "Herbology"
+(5, 78), (5, 82),          -- Quizzes for "Charms"
+(6, 70), (6, 75),          -- Quizzes for "Astronomy"
+(7, 88), (7, 90),          -- Quizzes for "Divination"
+(8, 85), (8, 87),          -- Quizzes for "Arithmancy"
+(9, 92), (9, 95),          -- Quizzes for "Care of Magical Creatures"
+(10, 80), (10, 85);        -- Quizzes for "History of Magic"
 
 -- Insert Questions
 INSERT INTO question (answer, body, quiz_id) VALUES
-(TRUE, 'What spell repels Dementors?', 1),
-(FALSE, 'Is Snape a Death Eater?', 2);
+(TRUE, 'What is the incantation for the Disarming Charm?', 1),
+(FALSE, 'Is the Killing Curse reversible?', 1),
+(TRUE, 'What does a Patronus charm repel?', 1),
+(FALSE, 'Can a Muggle cast a spell?', 1),
+
+(TRUE, 'What is the main ingredient in Polyjuice Potion?', 2),
+(FALSE, 'Is Felix Felicis a love potion?', 2),
+(TRUE, 'What is the antidote for most poisons?', 2),
+(FALSE, 'Can a potion be brewed without a wand?', 2),
+
+(TRUE, 'What is the spell to transform an object into a goblet?', 3),
+(FALSE, 'Can Transfiguration be used on humans?', 3),
+(TRUE, 'What is the Gamp’s Law of Elemental Transfiguration?', 3),
+(FALSE, 'Is Transfiguration permanent?', 3),
+
+(TRUE, 'What plant is used to cure petrification?', 4),
+(FALSE, 'Is Devil’s Snare harmless in the dark?', 4),
+(TRUE, 'What is the effect of Mandrake root?', 4),
+(FALSE, 'Can a Mandrake kill a wizard?', 4),
+
+(TRUE, 'What is the incantation for the Levitation Charm?', 5),
+(FALSE, 'Can the Summoning Charm summon living beings?', 5),
+(TRUE, 'What is the effect of the Silencing Charm?', 5),
+(FALSE, 'Is the Shield Charm offensive?', 5),
+
+(TRUE, 'What is the brightest star in the night sky?', 6),
+(FALSE, 'Is the moon a planet?', 6),
+(TRUE, 'What is the name of the North Star?', 6),
+(FALSE, 'Can constellations change over time?', 6),
+
+(TRUE, 'What is the purpose of a crystal ball?', 7),
+(FALSE, 'Can Divination predict the future with certainty?', 7),
+(TRUE, 'What is the significance of tea leaves in Divination?', 7),
+(FALSE, 'Is palmistry a form of Divination?', 7),
+
+(TRUE, 'What is the magical number in Arithmancy?', 8),
+(FALSE, 'Is Arithmancy related to Astronomy?', 8),
+(TRUE, 'What is the significance of the number seven?', 8),
+(FALSE, 'Can Arithmancy predict the future?', 8),
+
+(TRUE, 'What is the diet of a Hippogriff?', 9),
+(FALSE, 'Can a dragon be tamed?', 9),
+(TRUE, 'What is the habitat of a Niffler?', 9),
+(FALSE, 'Is a Phoenix immortal?', 9),
+
+(TRUE, 'What is the name of the first wizarding school?', 10),
+(FALSE, 'Is the Goblin Rebellion still ongoing?', 10),
+(TRUE, 'What is the significance of the Statute of Secrecy?', 10),
+(FALSE, 'Can Muggles see Hogwarts?', 10);
 
 -- Insert Messages
 INSERT INTO message (sender_id, resiever_id, connent, isread) VALUES

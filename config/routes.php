@@ -34,6 +34,11 @@ return [
     '/leaderBoard/students' => [\App\Controllers\leaderBoardController::class, 'showStudents'],
     '/leaderBoard/houses' => [\App\Controllers\leaderBoardController::class, 'showHouses'],
 
+    '/quizes' => [\App\Controllers\QuizesController::class, 'getQuizzesForEnrolledCourses'],
+    '/solveQuiz' => [\App\Controllers\QuizesController::class, 'solveQuiz'],
+    '/submitQuiz' => [\App\Controllers\QuizesController::class, 'submitQuiz'],
+    '/quizResult' => [\App\Controllers\QuizesController::class, 'viewQuizResult'],
+
     '*' => function () { http_response_code(404); return Application::view('404'); },
 ];
 

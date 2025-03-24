@@ -8,6 +8,7 @@
 
 <body>
     <?php include __DIR__ . '/partials/navbar.php'; ?>
+    
 </body>
 
 </html>
