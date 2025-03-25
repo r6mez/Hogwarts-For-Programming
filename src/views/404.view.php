@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="styles/defaults.css">
+    <link rel="stylesheet" href="/styles/defaults.css">
     <style>
         body {
             display: flex;

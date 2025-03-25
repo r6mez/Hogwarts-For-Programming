@@ -85,8 +85,23 @@ class ProfessorController
     {
         $this->authorizeProfessor();
         $pdo = Database::getInstance();
+
+        // Delete related rows in the wand table
+        $stmt = $pdo->prepare("DELETE FROM wand WHERE stud_id = :id");
+        $stmt->execute([':id' => $_GET['id']]);
+
+        // Delete related rows in the enroll table
+        $stmt = $pdo->prepare("DELETE FROM enroll WHERE id_stud = :id");
+        $stmt->execute([':id' => $_GET['id']]);
+
+        // Delete related rows in the MagicalItem table
+        $stmt = $pdo->prepare("DELETE FROM MagicalItem WHERE stud_id = :id");
+        $stmt->execute([':id' => $_GET['id']]);
+
+        // Delete the student from the users table
         $stmt = $pdo->prepare("DELETE FROM users WHERE id = :id");
         $stmt->execute([':id' => $_GET['id']]);
+
         header('Location: /manageStudents');
         exit;
     }

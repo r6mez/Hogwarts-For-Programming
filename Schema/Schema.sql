@@ -11,7 +11,7 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-create table Houses(
+create table houses(
 id int primary key AUTO_INCREMENT,
 name varchar(255)  UNIQUE
 );
@@ -46,7 +46,7 @@ id int primary key auto_increment ,
 woodtype varchar(255) ,
 coretype varchar(255) ,
 stud_id int ,
-constraint fk_wand_wood foreign key wand(id) references students(id) ON DELETE CASCADE 
+constraint fk_wand_stud foreign key (stud_id) references students(id) ON DELETE CASCADE 
 );
 
 create table course (

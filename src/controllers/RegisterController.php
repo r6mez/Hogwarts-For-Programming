@@ -22,20 +22,26 @@ class RegisterController
 
         $pdo = Database::getInstance();
         $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
+
+        // Insert user into the users table
         $stmt = $pdo->prepare("INSERT INTO users (name, email, password, type) VALUES (:name, :email, :password, 'Student')");
         $stmt->execute([
             ':name' => $data['name'],
             ':email' => $data['email'],
             ':password' => $hashedPassword,
         ]);
-        $userId = $pdo->lastInsertId(); // Get the ID of the newly inserted user
+        
+        // Get the ID of the newly inserted user
+        $userId = $pdo->lastInsertId(); 
 
+        // Insert student into the students table
         $randomHouseId = rand(1, 4); // Generate a random house_id between 1 and 4
         $stmt = $pdo->prepare("INSERT INTO students (id, points, house_id) VALUES (:id, 0, :house_id)");
         $stmt->execute([
             ':id' => $userId,
             ':house_id' => $randomHouseId,
         ]);
+        $userId = $pdo->lastInsertId(); 
 
         // Assign a random wand to the user
         $wandWoodTypes = ['Holly', 'Yew', 'Elder', 'Willow', 'Hawthorn', 'Oak'];
@@ -44,6 +50,7 @@ class RegisterController
         $randomWood = $wandWoodTypes[array_rand($wandWoodTypes)];
         $randomCore = $wandCores[array_rand($wandCores)];
 
+        // Insert wand into the wand table
         $stmt = $pdo->prepare("INSERT INTO wand (stud_id, woodtype, coretype) VALUES (:user_id, :wood, :core)");
         $stmt->execute([
             ':user_id' => $userId,

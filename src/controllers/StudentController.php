@@ -13,7 +13,7 @@ class StudentController
         $stmt = $pdo->prepare("SELECT u.name, u.email, s.points, h.name as house
                                FROM users u
                                LEFT JOIN students s ON u.id = s.id
-                               LEFT JOIN Houses h ON s.house_id = h.id
+                               LEFT JOIN houses h ON s.house_id = h.id
                                WHERE u.id = :id");
         $stmt->execute([':id' => $id]);
         $student = $stmt->fetch();

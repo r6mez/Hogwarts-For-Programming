@@ -8,7 +8,7 @@ use App\Core\Application;
 class MagicalItemController {
     public static function showMagicalItems() {
         $pdo = Database::getInstance();
-        $stmt = $pdo->prepare("SELECT id ,price , type , imag from magicalitem where stud_id is null;");
+        $stmt = $pdo->prepare("SELECT id ,price , type , imag from MagicalItem where stud_id is null;");
         $stmt->execute();
         $items = $stmt->fetchAll();
         return Application::view('DiagonAlley', ['items' => $items]);
@@ -29,7 +29,7 @@ class MagicalItemController {
                                 where id = :id;"); 
                                 
             $stmt->execute([':id' => $_SESSION['user']['id'] , ':price' => $data['item_price']]);
-            $stmt = $pdo->prepare("UPDATE  magicalitem 
+            $stmt = $pdo->prepare("UPDATE  MagicalItem 
                                 set stud_id = :id
                                 where id = :item_id;");
 
@@ -41,7 +41,7 @@ class MagicalItemController {
 
     public static function showMagicalItemsByUserId($userId) {
         $pdo = Database::getInstance();
-        $stmt = $pdo->prepare("SELECT id, price, type, imag FROM magicalitem WHERE stud_id = :userId;");
+        $stmt = $pdo->prepare("SELECT id, price, type, imag FROM MagicalItem WHERE stud_id = :userId;");
         $stmt->execute([':userId' => $userId]);
         return $stmt->fetchAll(); // Return the items directly
     }
@@ -51,7 +51,7 @@ class MagicalItemController {
         $pdo = Database::getInstance();
 
         // Reset the stud_id of the sold item
-        $stmt = $pdo->prepare("UPDATE magicalitem 
+        $stmt = $pdo->prepare("UPDATE MagicalItem 
                                SET stud_id = NULL 
                                WHERE id = :item_id AND stud_id = :user_id;");
         $stmt->execute([':item_id' => $data['item_id'], ':user_id' => $_SESSION['user']['id']]);

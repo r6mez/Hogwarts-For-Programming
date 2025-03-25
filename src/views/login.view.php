@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Hogwarts School</title>
     <link rel="stylesheet" href="styles/defaults.css">
     <style>
         body {
