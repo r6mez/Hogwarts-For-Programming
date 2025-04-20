@@ -126,8 +126,7 @@ class ProfessorController
                 ':id_cour' => $_POST['id_cour'],
                 ':score' => $_POST['score'],
             ]);
-            $quizId = $pdo->lastInsertId();
-            header('Location: /manageQuizzes/create?id=' . $quizId);
+            header('Location: /manageQuizzes');
             exit;
         }
 
@@ -194,14 +193,14 @@ class ProfessorController
     {
         $this->authorizeProfessor();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pdo = Database::getInstance();
+                        $pdo = Database::getInstance();
             $stmt = $pdo->prepare("INSERT INTO question (body, answer, quiz_id) VALUES (:body, :answer, :quiz_id)");
             $stmt->execute([
                 ':body' => $_POST['body'],
                 ':answer' => $_POST['answer'],
                 ':quiz_id' => $_POST['quiz_id'],
             ]);
-            header('Location: /manageQuizzes/create?id=' . $_POST['quiz_id']);
+            header('Location: /manageQuizzes/edit?id=' . $_POST['quiz_id']);
             exit;
         }
     }
@@ -217,7 +216,7 @@ class ProfessorController
                 ':answer' => $_POST['answer'],
                 ':id' => $_POST['id'],
             ]);
-            header('Location: /manageQuizzes/create?id=' . $_POST['quiz_id']);
+            header('Location: /manageQuizzes/edit?id=' . $_POST['quiz_id']);
             exit;
         }
         $stmt = $pdo->prepare("SELECT * FROM question WHERE id = :id");

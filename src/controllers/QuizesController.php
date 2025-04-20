@@ -100,6 +100,11 @@ class QuizesController {
         $stmt->bindParam(':studentId', $studentId, \PDO::PARAM_INT);
         $stmt->execute();
 
+        $stmt = $db->prepare("SELECT points FROM students WHERE id = :studentId");
+        $stmt->bindParam(':studentId', $studentId, \PDO::PARAM_INT);
+        $stmt->execute();
+        $_SESSION['student']['points'] = $stmt->fetchColumn();
+
         header("Location: /quizResult?quiz_id=$quizId&points=$awardedPoints");
         exit;
     }

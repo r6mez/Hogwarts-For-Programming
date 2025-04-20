@@ -5,7 +5,7 @@ return [
     'version' => '1.0.0',
     'db' => [
         'dsn' => 'mysql:host=localhost;dbname=Hogwarts',
-        'username' => 'root',
-        'password' => '2005',
+        'username' => 'hogwarts',
+        'password' => 'hogwarts',
     ],
 ];

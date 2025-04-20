@@ -41,7 +41,7 @@ class RegisterController
             ':id' => $userId,
             ':house_id' => $randomHouseId,
         ]);
-        $userId = $pdo->lastInsertId(); 
+        // Do NOT update $userId here, as students.id is the same as users.id
 
         // Assign a random wand to the user
         $wandWoodTypes = ['Holly', 'Yew', 'Elder', 'Willow', 'Hawthorn', 'Oak'];

@@ -83,41 +83,6 @@
             <input type="number" id="score" name="score" required>
             <button type="submit">Create Quiz</button>
         </form>
-
-        <h2>Manage Questions</h2>
-        <form action="/manageQuestions/create" method="POST">
-            <input type="hidden" name="quiz_id" value="<?= htmlspecialchars($quiz_id ?? '') ?>">
-            <label for="body">Question:</label>
-            <input type="text" id="body" name="body" required>
-            <label for="answer">Answer:</label>
-            <select id="answer" name="answer" required>
-                <option value="1">True</option>
-                <option value="0">False</option>
-            </select>
-            <button type="submit">Add Question</button>
-        </form>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Question</th>
-                    <th>Answer</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($questions as $question): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($question['body']) ?></td>
-                        <td><?= $question['answer'] ? 'True' : 'False' ?></td>
-                        <td>
-                            <a href="/manageQuestions/edit?id=<?= $question['id'] ?>">Edit</a>
-                            <a href="/manageQuestions/delete?id=<?= $question['id'] ?>&quiz_id=<?= htmlspecialchars($quiz_id) ?>" onclick="return confirm('Are you sure?')">Delete</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
     </div>
 </body>
 </html>
