@@ -21,7 +21,7 @@ id int primary key,
 points int,
 house_id int,
 wand varchar(255), 
-constraint fk_house_stud foreign key (house_id) references Houses(id) ON DELETE CASCADE , -- Fixed syntax
+constraint fk_house_stud foreign key (house_id) references houses(id) ON DELETE CASCADE , -- Fixed syntax
 constraint fk_stud_user foreign key (id) references users(id) ON DELETE CASCADE -- Fixed syntax
 );
 

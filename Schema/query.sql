@@ -12,7 +12,7 @@ INSERT INTO users (name, email, password, type) VALUES
 ('Remus Lupin', 'lupin@hogwarts.com', '$2y$12$8SDZVOpTlgjgEXq5SumwG.QVk5JRHXZ7Pj9ozqQiTprAGz5Qic5Ae', 'Professor');
 
 -- Insert Houses
-INSERT INTO Houses (name) VALUES
+INSERT INTO houses (name) VALUES
 ('Gryffindor'),
 ('Slytherin'),
 ('Ravenclaw'),
